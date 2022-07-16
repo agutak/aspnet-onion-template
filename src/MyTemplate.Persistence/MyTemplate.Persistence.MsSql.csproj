@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <RootNamespace>MyTemplate.Persistence.MsSql</RootNamespace>
+    <AssemblyName>MyTemplate.Persistence.MsSql</AssemblyName>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MyTemplate.Application\MyTemplate.Application.csproj" />
+    <ProjectReference Include="..\MyTemplate.Domain\MyTemplate.Domain.csproj" />
+  </ItemGroup>
+
+</Project>
