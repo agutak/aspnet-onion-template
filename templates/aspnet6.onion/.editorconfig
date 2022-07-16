@@ -152,9 +152,8 @@ csharp_style_pattern_local_over_anonymous_function = true:warning
 csharp_style_prefer_index_operator = true:error
 csharp_style_prefer_range_operator = true:error
 csharp_style_throw_expression = true:error
-csharp_style_unused_value_assignment_preference = discard_variable:warning
+csharp_style_unused_value_assignment_preference = discard_variable:suggestion
 csharp_style_unused_value_expression_statement_preference = discard_variable:suggestion
-csharp_style_unused_value_expression_statement_preference = discard_variable:warning
 
 # New line preferences
 csharp_new_line_before_open_brace = all

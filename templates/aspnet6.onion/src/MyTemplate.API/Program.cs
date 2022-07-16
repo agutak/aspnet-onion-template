@@ -1,4 +1,6 @@
-﻿using MyTemplate.Application.WeatherForecasts;
+﻿using MyTemplate.Application.Extensions;
+using MyTemplate.Application.WeatherForecasts;
+using MyTemplate.Persistence.MsSql.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,7 +9,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddScoped<IWeatherForecastsService, WeatherForecastsService>();
+builder.Services.RegisterPersistenceServices(builder.Configuration);
+
+builder.Services.RegisterApplicationServices();
 
 var app = builder.Build();
 
