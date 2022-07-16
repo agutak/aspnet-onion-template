@@ -1,0 +1,52 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "Anatolii Hutak",
+  "classifications": [
+    "Web",
+    "WebAPI",
+    "Onion Architecture"
+  ],
+  "name": "ASP.NET Onion Architecture Solution",
+  "description": "The ASP.NET Web API template with Onion architecture",
+  "identity": "AHutak.OnionArchitecture.AspNet",
+  "groupIdentity": "AHutak.OnionArchitecture",
+  "shortName": "oa-sln-aspnet",
+  "tags": {
+    "language": "C#",
+    "type": "solution"
+  },
+  "sourceName": "MyTemplate",
+  "preferNameDirectory": true,
+  "sources": [
+    {
+      "source": "./",
+      "target": "./",
+      "exclude": [
+        "**/[Bb]in/**",
+        "**/[Oo]bj/**",
+        ".template.config/**/*",
+        ".vs/**/*",
+        "**/*.filelist",
+        "**/*.user",
+        "**/*.lock.json",
+        "**/.git/**",
+        "*.nuspec",
+        "**/node_modules/**"
+      ]
+    }
+  ],
+  "symbols": {
+    "Framework": {
+      "type": "parameter",
+      "description": "The target framework for the project",
+      "datatype": "choice",
+      "choices": [
+        {
+          "choice": "net6.0"
+        }
+      ],
+      "defaultValue": "net6.0",
+      "replaces": "{{TargetFramework}}"
+    }
+  }
+}
