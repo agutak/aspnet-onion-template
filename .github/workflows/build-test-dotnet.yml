@@ -25,7 +25,7 @@ jobs:
       working-directory: ./templates/aspnet6.onion/src/MyTemplate.API
     - name: Test Domain
       run: dotnet test --no-restore --verbosity normal
-      working-directory: ./templates/aspnet6.onion/tests/MyTemplate.Domain.UnitTests/*.csproj
+      working-directory: templates/aspnet6.onion/tests/MyTemplate.Domain.UnitTests/*.csproj
     - name: Test Application
       run: dotnet test --no-restore --verbosity normal
-      working-directory: ./templates/aspnet6.onion/tests/MyTemplate.Application.UnitTests/*.csproj
+      working-directory: templates/aspnet6.onion/tests/MyTemplate.Application.UnitTests/*.csproj
