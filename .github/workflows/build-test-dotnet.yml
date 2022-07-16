@@ -22,10 +22,10 @@ jobs:
       working-directory: ./templates/aspnet6.onion
     - name: Build
       run: dotnet build --no-restore
-      working-directory: /templates/aspnet6.onion/src/MyTemplate.API
+      working-directory: ./templates/aspnet6.onion/src/MyTemplate.API
     - name: Test Domain
       run: dotnet test --no-build --verbosity normal
-      working-directory: /templates/aspnet6.onion/tests/MyTemplate.Domain.UnitTests
+      working-directory: ./templates/aspnet6.onion/tests/MyTemplate.Domain.UnitTests
     - name: Test Application
       run: dotnet test --no-build --verbosity normal
-      working-directory: /templates/aspnet6.onion/tests/MyTemplate.Application.UnitTests
+      working-directory: ./templates/aspnet6.onion/tests/MyTemplate.Application.UnitTests
