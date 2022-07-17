@@ -5,7 +5,7 @@ using System.Reflection;
 
 namespace MyTemplate.Persistence.MsSql.Migrations;
 
-public class MyDbContextFactory : IDesignTimeDbContextFactory<MyDbContext>
+internal class MyDbContextFactory : IDesignTimeDbContextFactory<MyDbContext>
 {
     public MyDbContext CreateDbContext(string[] args)
     {

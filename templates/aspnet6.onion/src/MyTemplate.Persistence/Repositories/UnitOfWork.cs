@@ -1,6 +1,6 @@
 ﻿namespace MyTemplate.Persistence.MsSql.Repositories;
 
-public class UnitOfWork : IUnitOfWork
+internal class UnitOfWork : IUnitOfWork
 {
     private readonly MyDbContext _dbContext;
 

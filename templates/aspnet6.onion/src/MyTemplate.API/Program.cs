@@ -1,5 +1,5 @@
-﻿using MyTemplate.Application.Extensions;
-using MyTemplate.Application.WeatherForecasts;
+﻿using MyTemplate.API.Endpoints.WeatherForecasts;
+using MyTemplate.Application.Extensions;
 using MyTemplate.Persistence.MsSql.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -23,12 +23,6 @@ if (app.Environment.IsEnvironment("Local") ||
     app.UseSwaggerUI();
 }
 
-app.MapGet("/weatherforecast", async (
-    IWeatherForecastsService service,
-    CancellationToken cancellation) =>
-{
-    return await service.GetWeatherForecastsAsync(cancellation);
-})
-.WithName("GetWeatherForecast");
+app.RegisterWeatherForecastsEndpoints();
 
 app.Run();

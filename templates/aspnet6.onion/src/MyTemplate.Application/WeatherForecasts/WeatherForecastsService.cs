@@ -22,4 +22,19 @@ public class WeatherForecastsService : IWeatherForecastsService
                 ))
             .ToArray();
     }
+
+    public async Task<WeatherForecastVm> GetWeatherForecastAsync(
+        int id,
+        CancellationToken cancellation)
+    {
+        await Task.Delay(200, cancellation);
+
+        return 
+            new WeatherForecastVm
+            (
+                DateTime.Now.AddDays(id),
+                Random.Shared.Next(-20, 55),
+                _summaries[Random.Shared.Next(_summaries.Length)]
+            );
+    }
 }
