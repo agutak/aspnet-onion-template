@@ -1,4 +1,4 @@
-﻿namespace MyTemplate.Domain.UnitTests;
+﻿namespace MyTemplate.Application.ComponentTests;
 
 [TestClass]
 public class UnitTest1

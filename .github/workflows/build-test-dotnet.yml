@@ -23,9 +23,12 @@ jobs:
     - name: Build
       run: dotnet build --no-restore
       working-directory: ./templates/aspnet6.onion/src/MyTemplate.API
-    - name: Test Domain
+    - name: Unittest Domain Layer
       run: dotnet test MyTemplate.Domain.UnitTests.csproj --no-restore --verbosity normal
       working-directory: templates/aspnet6.onion/tests/MyTemplate.Domain.UnitTests
-    - name: Test Application
+    - name: Unittest Application Layer
       run: dotnet test MyTemplate.Application.UnitTests.csproj --no-restore --verbosity normal
       working-directory: templates/aspnet6.onion/tests/MyTemplate.Application.UnitTests
+    - name: Componenttest Application
+      run: dotnet test MyTemplate.Application.ComponentTests.csproj --no-restore --verbosity normal
+      working-directory: templates/aspnet6.onion/tests/MyTemplate.Application.ComponentTests
