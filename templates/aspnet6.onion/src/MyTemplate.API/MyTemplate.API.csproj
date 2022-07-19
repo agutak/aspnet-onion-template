@@ -19,7 +19,7 @@
   <ItemGroup>
     <ProjectReference Include="..\MyTemplate.Application\MyTemplate.Application.csproj" />
     <ProjectReference Include="..\MyTemplate.Infrastructure\MyTemplate.Infrastructure.csproj" />
-    <ProjectReference Include="..\MyTemplate.Persistence\MyTemplate.Persistence.MsSql.csproj" />
+    <ProjectReference Include="..\MyTemplate.Persistence.MsSql\MyTemplate.Persistence.MsSql.csproj" />
   </ItemGroup>
 
 </Project>

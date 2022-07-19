@@ -18,7 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MyTemplate.Persistence\MyTemplate.Persistence.MsSql.csproj" />
+    <ProjectReference Include="..\MyTemplate.Persistence.MsSql\MyTemplate.Persistence.MsSql.csproj" />
   </ItemGroup>
 
 </Project>

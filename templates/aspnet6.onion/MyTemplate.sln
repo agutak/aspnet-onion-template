@@ -7,7 +7,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{20419956-36B
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyTemplate.Domain", "src\MyTemplate.Domain\MyTemplate.Domain.csproj", "{A0AB9A45-0F13-4AC7-8DDD-EDA1F1175473}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyTemplate.Persistence.MsSql", "src\MyTemplate.Persistence\MyTemplate.Persistence.MsSql.csproj", "{2C2A9C2B-9CFA-4E44-9D7E-E654CC3D06D9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyTemplate.Persistence.MsSql", "src\MyTemplate.Persistence.MsSql\MyTemplate.Persistence.MsSql.csproj", "{2C2A9C2B-9CFA-4E44-9D7E-E654CC3D06D9}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyTemplate.Application", "src\MyTemplate.Application\MyTemplate.Application.csproj", "{C2979C17-F849-4339-99CA-2DA4CE740A75}"
 EndProject
