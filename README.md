@@ -1,7 +1,7 @@
-# aspnet-onion-template
+# ASP.NET Onion Architecture Solution Template
 The ASP.NET Web API template with onion architecture
-
 <br/>
+
 [![.NET](https://github.com/agutak/aspnet-clean-template/actions/workflows/build-test-dotnet.yml/badge.svg?branch=master)](https://github.com/agutak/aspnet-clean-template/actions/workflows/build-test-dotnet.yml)
 [![Nuget](https://img.shields.io/nuget/vpre/AHutak.OnionArchitecture.AspNet?label=NuGet)](https://www.nuget.org/packages/AHutak.OnionArchitecture.AspNet)
 [![Nuget](https://img.shields.io/nuget/dt/AHutak.OnionArchitecture.AspNet?label=Downloads)](https://www.nuget.org/packages/AHutak.OnionArchitecture.AspNet)
