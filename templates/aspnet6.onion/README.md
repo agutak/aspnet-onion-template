@@ -1,2 +1,3 @@
-# aspnet-clean-template
-The ASP.NET Web API template with clean architecture
+# ASP.NET 6 Web API solution with onion architecture
+
+// Add your description here...
