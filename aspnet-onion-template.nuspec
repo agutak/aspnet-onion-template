@@ -3,7 +3,7 @@
   <metadata>
 
     <id>AHutak.OnionArchitecture.AspNet</id>
-    <version>0.1.0</version>
+    <version>1.0.0-alpha.1</version>
     <authors>Anatolii Hutak</authors>
     <title>ASP.NET Onion Architecture Solution template</title>
     <description>The ASP.NET Web API template with Onion architecture.</description>
