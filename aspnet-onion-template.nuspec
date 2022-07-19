@@ -20,6 +20,7 @@
     <license type="expression">MIT</license>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <tags>onion-architecture templates csharp dotnet</tags>
+    <icon>icon.png</icon>
     <readme>README.md</readme>
 
     <packageTypes>
@@ -29,6 +30,7 @@
   </metadata>
   
   <files>
+    <file src="templates\aspnet6.onion\.template.config\icon.png" />
     <file src="README.md" />
   </files>
 
