@@ -20,7 +20,6 @@
     <license type="expression">MIT</license>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <tags>onion-architecture templates csharp dotnet</tags>
-    <icon>icon.png</icon>
     <readme>README.md</readme>
 
     <packageTypes>
