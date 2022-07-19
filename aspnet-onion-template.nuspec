@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+
+    <id>AHutak.OnionArchitecture.AspNet</id>
+    <version>0.1.0</version>
+    <authors>Anatolii Hutak</authors>
+    <title>ASP.NET Onion Architecture Solution template</title>
+    <description>The ASP.NET Web API template with Onion architecture.</description>
+    <summary>
+      This is a solution template for creating an ASP.NET 6 application following the principles of Onion Architecture.
+    </summary>
+    <releaseNotes>
+      Released the initial version of the template.
+    </releaseNotes>
+
+    <projectUrl>https://github.com/agutak/aspnet-onion-template</projectUrl>
+    <repository type="git" url="https://github.com/agutak/aspnet-onion-template.git" branch="master" />
+
+    <license type="expression">MIT</license>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <tags>onion-architecture templates csharp dotnet</tags>
+    <icon>icon.png</icon>
+    <readme>README.md</readme>
+
+    <packageTypes>
+      <packageType name="Template" />
+    </packageTypes>
+
+  </metadata>
+
+</package>
