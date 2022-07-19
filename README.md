@@ -1,7 +1,6 @@
-# ![icon](templates/aspnet6.onion/.template.config/icon.png)
+<img align="left" width="128" height="128" src="templates/aspnet6.onion/.template.config/icon.png" />
 
 # ASP.NET Onion Architecture Solution Template
-### The ASP.NET Web API template with onion architecture
 [![.NET](https://github.com/agutak/aspnet-clean-template/actions/workflows/build-test-dotnet.yml/badge.svg?branch=master)](https://github.com/agutak/aspnet-clean-template/actions/workflows/build-test-dotnet.yml)
 [![Nuget](https://img.shields.io/nuget/vpre/AHutak.OnionArchitecture.AspNet?label=NuGet)](https://www.nuget.org/packages/AHutak.OnionArchitecture.AspNet)
 [![Nuget](https://img.shields.io/nuget/dt/AHutak.OnionArchitecture.AspNet?label=Downloads)](https://www.nuget.org/packages/AHutak.OnionArchitecture.AspNet)
@@ -9,7 +8,8 @@
 
 <br/>
 
-This is a solution template for creating an ASP.NET application following the Onion Architecture. You can create a new project based on this template by installing and running the associated NuGet package.
+## Template Description
+This is a solution template for creating an ASP.NET Web API application following the Onion Architecture. You can create a new project based on this template by installing and running the associated NuGet package.
 
 ## Support
 
