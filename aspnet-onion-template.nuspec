@@ -27,5 +27,9 @@
     </packageTypes>
 
   </metadata>
+  
+  <files>
+    <file src="README.md" />
+  </files>
 
 </package>
