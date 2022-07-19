@@ -1,4 +1,4 @@
-<img align="left" width="128" height="128" src="templates/aspnet6.onion/.template.config/icon.png" />
+<img align="left" width="128" height="128" src="https://img.shields.io/endpoint?url=https://github.com/agutak/aspnet-onion-template/blob/master/templates/aspnet6.onion/.template.config/icon.png" />
 
 # ASP.NET Onion Architecture Solution Template
 [![.NET](https://github.com/agutak/aspnet-clean-template/actions/workflows/build-test-dotnet.yml/badge.svg?branch=master)](https://github.com/agutak/aspnet-clean-template/actions/workflows/build-test-dotnet.yml)
