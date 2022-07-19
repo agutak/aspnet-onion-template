@@ -3,7 +3,7 @@
   <metadata>
 
     <id>AHutak.OnionArchitecture.AspNet</id>
-    <version>1.0.0-alpha.2</version>
+    <version>1.0.0-alpha.3</version>
     <authors>Anatolii Hutak</authors>
     <title>ASP.NET Onion Architecture Solution template</title>
     <description>The ASP.NET Web API template with Onion architecture.</description>
@@ -32,6 +32,7 @@
   <files>
     <file src="templates\aspnet6.onion\.template.config\icon.png" />
     <file src="README.md" />
+    <file src=".\templates\**" target="content" exclude="**\bin\**;**\obj\**;**\.vs\**;**\.vscode\**;content\Directory.Build.*;**\.git\**;**\.github\**;" />
   </files>
 
 </package>
