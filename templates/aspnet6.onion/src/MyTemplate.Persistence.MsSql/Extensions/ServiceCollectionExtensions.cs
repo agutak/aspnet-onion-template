@@ -7,7 +7,7 @@ public static class ServiceCollectionExtensions
 {
     public const string DbConnectionStringName = "MyDbConnectionString";
 
-    public static void RegisterPersistenceServices(
+    public static void RegisterMsSqlPersistenceServices(
         this IServiceCollection services, IConfiguration configuration)
     {
         var dbConnectionString = configuration.GetConnectionString(DbConnectionStringName);
@@ -23,5 +23,6 @@ public static class ServiceCollectionExtensions
                     .MigrationsHistoryTable("__EFMigrationsHistory", MyDbContext.DEFAULT_SCHEMA)));
 
         services.AddScoped<IUnitOfWork, UnitOfWork>();
+        services.AddScoped<IWeatherForecastsRepository, WeatherForecastsRepository>();
     }
 }
