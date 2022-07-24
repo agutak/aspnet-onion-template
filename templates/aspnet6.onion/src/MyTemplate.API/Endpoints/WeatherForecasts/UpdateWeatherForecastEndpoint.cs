@@ -2,17 +2,18 @@
 
 namespace MyTemplate.API.Endpoints.WeatherForecasts;
 
-public class GetWeatherForecastEndpoint
+public class UpdateWeatherForecastEndpoint
 {
     internal static async Task<IResult> ExecuteAsync(
         Guid id,
+        WeatherForecastUpdateModel model,
         IWeatherForecastsService service,
         CancellationToken cancellation)
     {
-        var result = await service.GetWeatherForecastAsync(id, cancellation);
-        
-        return result is null 
-            ? Results.NotFound(result)
-            : Results.Ok(result);
+        if (id != model.Id)
+            return Results.BadRequest();
+
+        await service.UpdateWeatherForecastAsync(model, cancellation);
+        return Results.Ok();
     }
 }

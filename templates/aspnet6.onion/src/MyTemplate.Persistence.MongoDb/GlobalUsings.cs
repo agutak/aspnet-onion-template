@@ -1,0 +1,9 @@
+﻿global using MongoDB.Bson.Serialization;
+global using MongoDB.Driver;
+global using MyTemplate.Application.Repositories;
+global using MyTemplate.Domain.Common;
+global using MyTemplate.Domain.Entities;
+global using MyTemplate.Persistence.MongoDb.Context;
+global using MyTemplate.Persistence.MongoDb.Context.EntitiesConfigurations;
+global using MyTemplate.Persistence.MongoDb.Repositories;
+global using System.Reflection;

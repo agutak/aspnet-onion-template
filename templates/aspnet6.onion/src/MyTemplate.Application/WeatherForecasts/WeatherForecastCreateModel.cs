@@ -1,8 +1,6 @@
 ﻿namespace MyTemplate.Application.WeatherForecasts;
 
-public record WeatherForecastVm(
-    Guid Id,
+public record WeatherForecastCreateModel(
     DateTime Date,
     int TemperatureC,
-    int TemperatureF,
     string? Summary);

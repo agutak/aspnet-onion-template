@@ -1,40 +1,89 @@
-﻿namespace MyTemplate.Application.WeatherForecasts;
+﻿using MyTemplate.Domain.Entities;
+
+namespace MyTemplate.Application.WeatherForecasts;
 
 public class WeatherForecastsService : IWeatherForecastsService
 {
-    private readonly string[] _summaries = new[]
+    private readonly IWeatherForecastsRepository _weatherForecastsRepository;
+    private readonly IUnitOfWork _unitOfWork;
+
+    public WeatherForecastsService(
+        IWeatherForecastsRepository weatherForecastsRepository,
+        IUnitOfWork unitOfWork)
     {
-        "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-    };
+        _weatherForecastsRepository = weatherForecastsRepository;
+        _unitOfWork = unitOfWork;
+    }
+
+    public async Task<Guid> CreateWeatherForecastAsync(WeatherForecastCreateModel model)
+    {
+        var weatherForecast = new WeatherForecast(
+            model.Date,
+            model.TemperatureC,
+            model.Summary);
+
+        await _weatherForecastsRepository
+            .AddAsync(weatherForecast);
+
+        await _unitOfWork.CompleteAsync(default);
+
+        return weatherForecast.EntityId;
+    }
 
     public async Task<IEnumerable<WeatherForecastVm>> GetWeatherForecastsAsync(
         CancellationToken cancellation)
     {
-        await Task.Delay(200, cancellation);
+        var weatherForecasts = await _weatherForecastsRepository
+            .GetAllAsync(cancellation);
 
-        return Enumerable.Range(1, 5)
-            .Select(index =>
+        return weatherForecasts
+            .Select(x =>
                 new WeatherForecastVm
                 (
-                    DateTime.Now.AddDays(index),
-                    Random.Shared.Next(-20, 55),
-                    _summaries[Random.Shared.Next(_summaries.Length)]
+                    x.EntityId,
+                    x.Date,
+                    x.TemperatureC,
+                    x.TemperatureF,
+                    x.Summary
                 ))
             .ToArray();
     }
 
-    public async Task<WeatherForecastVm> GetWeatherForecastAsync(
-        int id,
+    public async Task<WeatherForecastVm?> GetWeatherForecastAsync(
+        Guid id,
         CancellationToken cancellation)
     {
-        await Task.Delay(200, cancellation);
+        var weatherForecast = await _weatherForecastsRepository
+            .GetAsync(id, cancellation);
 
-        return 
-            new WeatherForecastVm
+        return weatherForecast is null
+            ? default
+            : new WeatherForecastVm
             (
-                DateTime.Now.AddDays(id),
-                Random.Shared.Next(-20, 55),
-                _summaries[Random.Shared.Next(_summaries.Length)]
+                weatherForecast.EntityId,
+                weatherForecast.Date,
+                weatherForecast.TemperatureC,
+                weatherForecast.TemperatureF,
+                weatherForecast.Summary
             );
+    }
+
+    public async Task UpdateWeatherForecastAsync(WeatherForecastUpdateModel model, CancellationToken cancellation)
+    {
+        var weatherForecast = await _weatherForecastsRepository
+            .GetAsync(model.Id, cancellation);
+
+        if (weatherForecast is null)
+            return;
+
+        weatherForecast.UpdateDetails(
+            model.Date,
+            model.TemperatureC,
+            model.Summary);
+
+        await _weatherForecastsRepository
+            .UpdateAsync(weatherForecast);
+
+        await _unitOfWork.CompleteAsync(default);
     }
 }
