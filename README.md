@@ -1,5 +1,6 @@
 # ![icon](https://raw.githubusercontent.com/agutak/aspnet-onion-template/master/templates/aspnet6.onion/.template.config/icon.png) ASP.NET Onion Architecture Solution Template
 [![.NET](https://github.com/agutak/aspnet-clean-template/actions/workflows/build-test-dotnet.yml/badge.svg?branch=master)](https://github.com/agutak/aspnet-clean-template/actions/workflows/build-test-dotnet.yml)
+[![CodeQL](https://github.com/agutak/aspnet-clean-template/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/agutak/aspnet-clean-template/actions/workflows/codeql-analysis.yml)
 [![Nuget](https://img.shields.io/nuget/vpre/AHutak.OnionArchitecture.AspNet?label=NuGet)](https://www.nuget.org/packages/AHutak.OnionArchitecture.AspNet)
 [![Nuget](https://img.shields.io/nuget/dt/AHutak.OnionArchitecture.AspNet?label=Downloads)](https://www.nuget.org/packages/AHutak.OnionArchitecture.AspNet)
 
