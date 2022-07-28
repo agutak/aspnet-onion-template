@@ -10,6 +10,6 @@ internal class WeatherForecastEntityConfiguration : IEntityTypeConfiguration<Wea
 
         builder.Property<int>(_keyPropertyName);
 
-        builder.HasKey(x => EF.Property<int>(x, _keyPropertyName));
+        builder.HasKey(_keyPropertyName);
     }
 }

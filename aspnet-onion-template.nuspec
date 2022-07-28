@@ -3,15 +3,13 @@
   <metadata>
 
     <id>AHutak.OnionArchitecture.AspNet</id>
-    <version>1.0.0-alpha.7</version>
+    <version>1.0.0-alpha.8</version>
     <authors>Anatolii Hutak</authors>
     <title>ASP.NET Onion Architecture Solution template</title>
-    <description>The ASP.NET Web API template with Onion architecture.</description>
-    <summary>
-      This is a solution template for creating an ASP.NET 6 application following the principles of Onion Architecture.
-    </summary>
+    <description> This is a solution template for creating an ASP.NET 6 application following the principles of Onion Architecture.</description>
     <releaseNotes>
-      Released the initial version of the template.
+      Adjusted package and template settings.
+      Fixed entity configuration for MsSql persistence.
     </releaseNotes>
 
     <projectUrl>https://github.com/agutak/aspnet-onion-template</projectUrl>
@@ -19,13 +17,30 @@
 
     <license type="expression">MIT</license>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <tags>onion-architecture templates csharp dotnet</tags>
+    <tags>onion-architecture templates csharp dotnet dotnet-new</tags>
     <icon>icon.png</icon>
     <readme>README.md</readme>
 
     <packageTypes>
       <packageType name="Template" />
     </packageTypes>
+
+    <dependencies>
+      <group targetFramework="net6.0">
+          <dependency id="coverlet.collector" version="3.1.2" />
+          <dependency id="Microsoft.EntityFrameworkCore.SqlServer" version="6.0.7" />
+          <dependency id="Microsoft.EntityFrameworkCore.Tools" version="6.0.7" />
+          <dependency id="Microsoft.Extensions.DependencyInjection.Abstractions" version="6.0.0" />
+          <dependency id="Microsoft.Extensions.Options.ConfigurationExtensions" version="6.0.0" />
+          <dependency id="Microsoft.NET.Test.Sdk" version="17.2.0" />
+          <dependency id="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" version="1.16.1" />
+          <dependency id="MongoDB.Driver" version="2.17.0" />
+          <dependency id="Moq" version="4.18.1" />
+          <dependency id="MSTest.TestAdapter" version="2.2.10" />
+          <dependency id="MSTest.TestFramework" version="2.2.10" />
+          <dependency id="Swashbuckle.AspNetCore" version="6.3.2" />
+      </group>
+    </dependencies>
 
   </metadata>
   
