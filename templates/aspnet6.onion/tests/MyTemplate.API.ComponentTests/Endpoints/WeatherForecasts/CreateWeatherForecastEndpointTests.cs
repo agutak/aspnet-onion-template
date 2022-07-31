@@ -1,8 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc.Testing;
-using Microsoft.VisualStudio.TestPlatform.TestHost;
-using MyTemplate.API.ComponentTests.Setup;
-using System.Net;
+﻿using MyTemplate.API.ComponentTests.Setup;
 
 namespace MyTemplate.API.ComponentTests.Endpoints.WeatherForecasts;
 
@@ -21,26 +17,24 @@ public class CreateWeatherForecastEndpointTests
     }
 
     [TestMethod]
-    [Ignore] // TODO: Remove on real project
     public async Task Get_all_weatherForecasts_returns_ok_Async()
     {
-        var response = await _httpClient!.GetAsync("http://localhost:5000/weatherforecasts");
-        var result = await response.Content.ReadAsStringAsync();
+        // Arrange
 
-        Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
-        Assert.IsNotNull(result);
+        // Act
+
+        // Assert
     }
 
     [TestMethod]
     [Ignore] // TODO: Remove on real project
     public async Task Get_specific_weatherForecast_returns_ok_Async()
     {
-        var id = new Guid("e0bca7f2-0eaf-4ca8-90d1-bb053abcf6a1");
-        var response = await _httpClient!.GetAsync($"http://localhost:5000/weatherforecasts/{id}");
-        var result = await response.Content.ReadAsStringAsync();
+        // Arrange
 
-        Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
-        Assert.IsNotNull(result);
+        // Act
+
+        // Assert
     }
 
     [TestCleanup]
