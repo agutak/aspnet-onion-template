@@ -1,4 +1,4 @@
-﻿namespace MyTemplate.Application.WeatherForecasts;
+﻿namespace MyTemplate.API.Endpoints.WeatherForecasts.Contracts;
 
 public record WeatherForecastUpdateModel(
     Guid Id,

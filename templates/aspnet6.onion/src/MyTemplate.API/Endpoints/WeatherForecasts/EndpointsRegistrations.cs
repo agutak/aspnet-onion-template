@@ -1,6 +1,4 @@
-﻿using MyTemplate.Application.WeatherForecasts;
-
-namespace MyTemplate.API.Endpoints.WeatherForecasts;
+﻿namespace MyTemplate.API.Endpoints.WeatherForecasts;
 
 public static partial class EndpointsRegistrations
 {
@@ -16,13 +14,13 @@ public static partial class EndpointsRegistrations
             .MapGet("/weatherforecasts", GetAllWeatherForecastsEndpoint.ExecuteAsync)
             .WithName("GetWeatherForecasts")
             .WithTags("WeatherForecasts")
-            .Produces<IEnumerable<WeatherForecastVm>>();
+            .Produces<IEnumerable<WeatherForecastViewModel>>();
 
         app
             .MapGet("/weatherforecasts/{id}", GetWeatherForecastEndpoint.ExecuteAsync)
             .WithName("GetWeatherForecast")
             .WithTags("WeatherForecasts")
-            .Produces<WeatherForecastVm>();
+            .Produces<WeatherForecastViewModel>();
 
         app
             .MapPut("/weatherforecasts/{id}", UpdateWeatherForecastEndpoint.ExecuteAsync)

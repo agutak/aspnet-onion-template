@@ -1,6 +1,4 @@
-﻿using MyTemplate.Application.WeatherForecasts;
-
-namespace MyTemplate.API.Endpoints.WeatherForecasts;
+﻿namespace MyTemplate.API.Endpoints.WeatherForecasts;
 
 public class UpdateWeatherForecastEndpoint
 {
@@ -13,7 +11,18 @@ public class UpdateWeatherForecastEndpoint
         if (id != model.Id)
             return Results.BadRequest();
 
-        await service.UpdateWeatherForecastAsync(model, cancellation);
+        var weathterForecastDto = MapFrom(model);
+
+        await service.UpdateWeatherForecastAsync(weathterForecastDto, cancellation);
         return Results.Ok();
+    }
+
+    private static WeatherForecastUpdateDto MapFrom(WeatherForecastUpdateModel model)
+    {
+        return new WeatherForecastUpdateDto(
+            model.Id,
+            model.Date,
+            model.TemperatureC,
+            model.Summary);
     }
 }

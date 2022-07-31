@@ -1,6 +1,6 @@
-﻿namespace MyTemplate.Application.WeatherForecasts;
+﻿namespace MyTemplate.Application.WeatherForecasts.Dtos;
 
-public record WeatherForecastVm(
+public record WeatherForecastReturnDto(
     Guid Id,
     DateTime Date,
     int TemperatureC,

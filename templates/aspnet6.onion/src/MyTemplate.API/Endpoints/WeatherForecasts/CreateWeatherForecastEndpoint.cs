@@ -1,6 +1,4 @@
-﻿using MyTemplate.Application.WeatherForecasts;
-
-namespace MyTemplate.API.Endpoints.WeatherForecasts;
+﻿namespace MyTemplate.API.Endpoints.WeatherForecasts;
 
 public class CreateWeatherForecastEndpoint
 {
@@ -8,7 +6,17 @@ public class CreateWeatherForecastEndpoint
         WeatherForecastCreateModel model,
         IWeatherForecastsService service)
     {
-        var id = await service.CreateWeatherForecastAsync(model);
+        var weathterForecastDto = MapFrom(model);
+
+        var id = await service.CreateWeatherForecastAsync(weathterForecastDto);
         return Results.Ok(id);
+    }
+
+    private static WeatherForecastCreateDto MapFrom(WeatherForecastCreateModel model)
+    {
+        return new WeatherForecastCreateDto(
+            model.Date,
+            model.TemperatureC,
+            model.Summary);
     }
 }

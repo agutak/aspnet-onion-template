@@ -1,6 +1,4 @@
-﻿using MyTemplate.Application.WeatherForecasts;
-
-namespace MyTemplate.API.Endpoints.WeatherForecasts;
+﻿namespace MyTemplate.API.Endpoints.WeatherForecasts;
 
 public class GetWeatherForecastEndpoint
 {
@@ -10,9 +8,23 @@ public class GetWeatherForecastEndpoint
         CancellationToken cancellation)
     {
         var result = await service.GetWeatherForecastAsync(id, cancellation);
-        
-        return result is null 
-            ? Results.NotFound(result)
-            : Results.Ok(result);
+
+        var responseModel = MapFrom(result);
+
+        return result is null
+            ? Results.NotFound(responseModel)
+            : Results.Ok(responseModel);
+    }
+
+    private static WeatherForecastViewModel? MapFrom(WeatherForecastReturnDto? model)
+    {
+        return model is null
+            ? null
+            : new WeatherForecastViewModel(
+                model.Id,
+                model.Date,
+                model.TemperatureC,
+                model.TemperatureF,
+                model.Summary);
     }
 }

@@ -2,11 +2,11 @@
 
 public interface IWeatherForecastsService
 {
-    Task<Guid> CreateWeatherForecastAsync(WeatherForecastCreateModel model);
+    Task<Guid> CreateWeatherForecastAsync(WeatherForecastCreateDto model);
 
-    Task<IEnumerable<WeatherForecastVm>> GetWeatherForecastsAsync(CancellationToken cancellation);
+    Task<IEnumerable<WeatherForecastReturnDto>> GetWeatherForecastsAsync(CancellationToken cancellation);
 
-    Task<WeatherForecastVm?> GetWeatherForecastAsync(Guid id, CancellationToken cancellation);
+    Task<WeatherForecastReturnDto?> GetWeatherForecastAsync(Guid id, CancellationToken cancellation);
 
-    Task UpdateWeatherForecastAsync(WeatherForecastUpdateModel model, CancellationToken cancellation);
+    Task UpdateWeatherForecastAsync(WeatherForecastUpdateDto model, CancellationToken cancellation);
 }

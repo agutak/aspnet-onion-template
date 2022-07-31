@@ -1,6 +1,4 @@
-﻿using MyTemplate.Domain.Entities;
-
-namespace MyTemplate.Application.WeatherForecasts;
+﻿namespace MyTemplate.Application.WeatherForecasts;
 
 public class WeatherForecastsService : IWeatherForecastsService
 {
@@ -15,7 +13,7 @@ public class WeatherForecastsService : IWeatherForecastsService
         _unitOfWork = unitOfWork;
     }
 
-    public async Task<Guid> CreateWeatherForecastAsync(WeatherForecastCreateModel model)
+    public async Task<Guid> CreateWeatherForecastAsync(WeatherForecastCreateDto model)
     {
         var weatherForecast = new WeatherForecast(
             model.Date,
@@ -30,7 +28,7 @@ public class WeatherForecastsService : IWeatherForecastsService
         return weatherForecast.EntityId;
     }
 
-    public async Task<IEnumerable<WeatherForecastVm>> GetWeatherForecastsAsync(
+    public async Task<IEnumerable<WeatherForecastReturnDto>> GetWeatherForecastsAsync(
         CancellationToken cancellation)
     {
         var weatherForecasts = await _weatherForecastsRepository
@@ -38,7 +36,7 @@ public class WeatherForecastsService : IWeatherForecastsService
 
         return weatherForecasts
             .Select(x =>
-                new WeatherForecastVm
+                new WeatherForecastReturnDto
                 (
                     x.EntityId,
                     x.Date,
@@ -49,7 +47,7 @@ public class WeatherForecastsService : IWeatherForecastsService
             .ToArray();
     }
 
-    public async Task<WeatherForecastVm?> GetWeatherForecastAsync(
+    public async Task<WeatherForecastReturnDto?> GetWeatherForecastAsync(
         Guid id,
         CancellationToken cancellation)
     {
@@ -58,7 +56,7 @@ public class WeatherForecastsService : IWeatherForecastsService
 
         return weatherForecast is null
             ? default
-            : new WeatherForecastVm
+            : new WeatherForecastReturnDto
             (
                 weatherForecast.EntityId,
                 weatherForecast.Date,
@@ -68,7 +66,7 @@ public class WeatherForecastsService : IWeatherForecastsService
             );
     }
 
-    public async Task UpdateWeatherForecastAsync(WeatherForecastUpdateModel model, CancellationToken cancellation)
+    public async Task UpdateWeatherForecastAsync(WeatherForecastUpdateDto model, CancellationToken cancellation)
     {
         var weatherForecast = await _weatherForecastsRepository
             .GetAsync(model.Id, cancellation);
