@@ -49,6 +49,39 @@
         "**/.git/**",
         "*.nuspec",
         "**/node_modules/**"
+      ],
+      "modifiers": [
+        {
+          "condition": "(!MongoDBPersistence)",
+          "exclude": [
+            "**/src/MyTemplate.Persistence.MongoDb/**",
+            "Solution.MongoDb.sln",
+            "**/src/MyTemplate.API/appsettings.MongoDb.json",
+            "**/src/MyTemplate.API/appsettings.MongoDb.*.json"
+          ],
+          "rename": {
+            "Solution.MsSql.sln": "Solution.sln",
+            "appsettings.MsSql.json": "appsettings.json",
+            "appsettings.MsSql.Local.json": "appsettings.Local.json",
+            "appsettings.MsSql.Development.json": "appsettings.Development.json"
+          }
+        },
+        {
+          "condition": "(!MsSqlPersistence)",
+          "exclude": [
+            "**/src/MyTemplate.Persistence.MsSql/**",
+            "**/src/MyTemplate.Persistence.MsSql.Migrations/**",
+            "Solution.MsSql.sln",
+            "**/src/MyTemplate.API/appsettings.MsSql.json",
+            "**/src/MyTemplate.API/appsettings.MsSql.*.json"
+          ],
+          "rename": {
+            "Solution.MongoDb.sln": "Solution.sln",
+            "appsettings.MongoDb.json": "appsettings.json",
+            "appsettings.MongoDb.Local.json": "appsettings.Local.json",
+            "appsettings.MongoDb.Development.json": "appsettings.Development.json"
+          }
+        }
       ]
     }
   ],
@@ -65,6 +98,30 @@
       ],
       "defaultValue": "net6.0",
       "replaces": "net6.0"
+    },
+    "Persistence": {
+      "type": "parameter",
+      "description": "The implementation for the persistence layer",
+      "datatype": "choice",
+      "choices": [
+        {
+          "choice": "MS SQL (EF Core)",
+          "description": "MS SQL persistence implementation"
+        },
+        {
+          "choice": "MongoDB",
+          "description": "MongoDB persistence implementation"
+        }
+      ],
+      "defaultValue": "MS SQL (EF Core)"
+    },
+    "MongoDBPersistence": {
+      "type": "computed",
+      "value": "(Persistence == \"MongoDB\")"
+    },
+    "MsSqlPersistence": {
+      "type": "computed",
+      "value": "(Persistence == \"MS SQL (EF Core)\")"
     }
   }
 }

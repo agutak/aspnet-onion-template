@@ -1,7 +1,11 @@
 ﻿using MyTemplate.API.Endpoints.WeatherForecasts;
 using MyTemplate.Application.Extensions;
+@*#if (MongoDBPersistence)
 using MyTemplate.Persistence.MongoDb.Extensions;
+#endif*@
+@*#if (MsSqlPersistence)
 using MyTemplate.Persistence.MsSql.Extensions;
+#endif*@
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,8 +14,12 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-//builder.Services.RegisterMsSqlPersistenceServices(builder.Configuration);
+@*#if (MsSqlPersistence)
+builder.Services.RegisterMsSqlPersistenceServices(builder.Configuration);
+#endif*@
+@*#if (MongoDBPersistence)
 builder.Services.RegisterMongoDbPersistenceServices(builder.Configuration);
+#endif*@
 
 builder.Services.RegisterApplicationServices();
 
