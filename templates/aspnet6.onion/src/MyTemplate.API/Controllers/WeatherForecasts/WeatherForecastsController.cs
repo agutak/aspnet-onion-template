@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using MyTemplate.API.Controllers.WeatherForecasts.Contracts;
 
 namespace MyTemplate.API.Controllers.WeatherForecasts;
 

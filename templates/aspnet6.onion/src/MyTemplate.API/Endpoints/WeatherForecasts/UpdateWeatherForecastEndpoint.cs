@@ -1,4 +1,6 @@
-﻿namespace MyTemplate.API.Endpoints.WeatherForecasts;
+﻿using MyTemplate.API.Controllers.WeatherForecasts.Contracts;
+
+namespace MyTemplate.API.Endpoints.WeatherForecasts;
 
 public class UpdateWeatherForecastEndpoint
 {
