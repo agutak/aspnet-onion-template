@@ -12,7 +12,7 @@ public class GetWeatherForecastEndpoint
         var responseModel = MapFrom(result);
 
         return result is null
-            ? Results.NotFound(responseModel)
+            ? Results.NotFound()
             : Results.Ok(responseModel);
     }
 

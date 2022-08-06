@@ -3,7 +3,7 @@
   <metadata>
 
     <id>AHutak.OnionArchitecture.AspNet</id>
-    <version>1.0.0-preview.1</version>
+    <version>1.0.0</version>
     <authors>Anatolii Hutak</authors>
     <title>ASP.NET Onion Architecture Solution template</title>
     <description> This is a solution template for creating an ASP.NET 6 application following the principles of Onion Architecture.</description>

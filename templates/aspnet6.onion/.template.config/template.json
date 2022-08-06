@@ -82,6 +82,18 @@
             "appsettings.MongoDb.Local.json": "appsettings.Local.json",
             "appsettings.MongoDb.Development.json": "appsettings.Development.json"
           }
+        },
+        {
+          "condition": "(UseMinimalAPIs)",
+          "exclude": [
+            "**/src/MyTemplate.API/Controllers/**"
+          ]
+        },
+        {
+          "condition": "(UseControllers)",
+          "exclude": [
+            "**/src/MyTemplate.API/Endpoints/**"
+          ]
         }
       ]
     }
@@ -102,6 +114,7 @@
     },
     "Persistence": {
       "type": "parameter",
+      "displayName": "Persistence layer implementation",
       "description": "The implementation for the persistence layer",
       "datatype": "choice",
       "choices": [
@@ -116,6 +129,13 @@
       ],
       "defaultValue": "MS SQL (EF Core)"
     },
+    "UseControllers": {
+      "type": "parameter",
+      "datatype": "bool",
+      "defaultValue": "false",
+      "displayName": "Use controllers (uncheck to use minimal APIs)",
+      "description": "Whether to use controllers instead of minimal APIs."
+    },
     "MongoDBPersistence": {
       "type": "computed",
       "value": "(Persistence == \"MongoDB\")"
@@ -123,6 +143,10 @@
     "MsSqlPersistence": {
       "type": "computed",
       "value": "(Persistence == \"MS SQL (EF Core)\")"
+    },
+    "UseMinimalAPIs": {
+      "type": "computed",
+      "value": "(!UseControllers)"
     }
   }
 }

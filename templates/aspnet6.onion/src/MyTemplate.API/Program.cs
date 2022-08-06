@@ -1,4 +1,6 @@
-﻿using MyTemplate.API.Endpoints.WeatherForecasts;
+﻿#if (UseMinimalAPIs)
+using MyTemplate.API.Endpoints.WeatherForecasts;
+#endif
 using MyTemplate.Application.Extensions;
 #if (MongoDBPersistence)
 using MyTemplate.Persistence.MongoDb.Extensions;
@@ -10,6 +12,10 @@ using MyTemplate.Persistence.MsSql.Extensions;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+#if (UseControllers)
+builder.Services.AddControllers();
+#endif
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -33,6 +39,11 @@ if (app.Environment.IsEnvironment("Local") ||
     app.UseSwaggerUI();
 }
 
+#if (UseMinimalAPIs)
 app.RegisterWeatherForecastsEndpoints();
+#endif
+#if (UseControllers)
+app.MapControllers();
+#endif
 
 app.Run();
