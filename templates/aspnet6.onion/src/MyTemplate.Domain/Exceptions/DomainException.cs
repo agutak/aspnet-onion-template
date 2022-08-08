@@ -2,6 +2,7 @@
 
 namespace MyTemplate.Domain.Exceptions;
 
+[Serializable]
 public class DomainException : Exception
 {
     public DomainException()

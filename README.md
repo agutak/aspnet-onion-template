@@ -10,7 +10,7 @@ This is a solution template for creating an ASP.NET Web API application followin
 The template contains:
 - Domain, Application, Persistence, Infrastructure, API projects,
 - MS SQL and MongoDB persistence layer implementations wich user can choose during solution creation,
-- Unit tests, Component tests and Acceptance tests template projects,
+- Unit tests and Component tests template projects,
 - WebAPI project with minimal API's and optionally standard controllers
 
 ## Getting Started

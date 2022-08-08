@@ -1,4 +1,4 @@
-﻿using MyTemplate.API.Controllers.WeatherForecasts.Contracts;
+﻿using MyTemplate.API.Endpoints.WeatherForecasts.Contracts;
 
 namespace MyTemplate.API.Endpoints.WeatherForecasts;
 

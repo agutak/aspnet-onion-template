@@ -13,4 +13,9 @@
     <ProjectReference Include="..\MyTemplate.Application\MyTemplate.Application.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="HttpClients\" />
+    <Folder Include="Caching\" />
+  </ItemGroup>
+
 </Project>

@@ -3,16 +3,15 @@
   <metadata>
 
     <id>AHutak.OnionArchitecture.AspNet</id>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <authors>Anatolii Hutak</authors>
     <title>ASP.NET Onion Architecture Solution template</title>
     <description> This is a solution template for creating an ASP.NET 6 application following the principles of Onion Architecture.</description>
     <releaseNotes>
-		Release contains the initial version of the template with:
-		- Onion solution architecture (e.g. Domain, Application, Persistence, Infrastructure, API),
-		- MS SQL and MongoDB persistence layer implementations wich user can choose during solution creation,
-		- Unit tests and Component tests project templates,
-		- WebAPI project with minimal API's
+		Release includes the following improvements:
+    - fixes of using directives for minimal APIs contract models
+    - [Serializable] attribute added to custom DomainException
+    - added several empty folders to Infrastructure project to guide users what should be implemented there
 	</releaseNotes>
 
     <projectUrl>https://github.com/agutak/aspnet-onion-template</projectUrl>
