@@ -1,0 +1,53 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/wrappers.proto";
+
+option csharp_namespace = "MyTemplate.API.GrpcServices.WeatherForecasting.Protos";
+
+package weatherForecast;
+
+service WeatherForecasts {
+  rpc GetWeatherForecasts (google.protobuf.Empty) returns (GetWeatherForecastsResponse);
+  rpc GetWeatherForecast (GetWeatherForecastRequest) returns (GetWeatherForecastResponse);
+  rpc CreateWeatherForecast (CreateWeatherForecastRequest) returns (CreateWeatherForecastResponse);
+  rpc UpdateWeatherForecast (UpdateWeatherForecastRequest) returns (google.protobuf.Empty);
+}
+
+message GetWeatherForecastRequest {
+    string Id = 1;
+}
+
+message WeatherForecast {
+  string Id = 1;
+  google.protobuf.Timestamp Date = 2;
+  int32 TemperatureC = 3;
+  int32 TemperatureF = 4;
+  google.protobuf.StringValue Summary = 5;
+}
+
+message GetWeatherForecastResponse {
+  WeatherForecast forecast = 1;
+}
+
+message GetWeatherForecastsResponse {
+  repeated WeatherForecast forecasts = 1;
+}
+
+message CreateWeatherForecastRequest {
+    google.protobuf.Timestamp Date = 1;
+    int32 TemperatureC = 2;
+    google.protobuf.StringValue Summary = 3;
+}
+
+message CreateWeatherForecastResponse {
+    string Id = 1;
+}
+
+message UpdateWeatherForecastRequest {
+    string Id = 1;
+    google.protobuf.Timestamp Date = 2;
+    int32 TemperatureC = 3;
+    google.protobuf.StringValue Summary = 4;
+}

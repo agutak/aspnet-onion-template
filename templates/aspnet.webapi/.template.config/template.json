@@ -7,11 +7,11 @@
     "Onion Architecture",
     "Solution"
   ],
-  "name": "ASP.NET Onion Architecture Solution",
-  "shortName": "oa-sln-aspnet",
+  "name": "ASP.NET WebAPI Onion Architecture Solution",
+  "shortName": "oa-sln-aspnet-webapi",
   "defaultName": "WebApiSolution",
   "description": "The ASP.NET Web API template with Onion architecture",
-  "identity": "AHutak.OnionArchitecture.AspNet",
+  "identity": "AHutak.OnionArchitecture.AspNet.WebAPI",
   "groupIdentity": "AHutak.OnionArchitecture",
   "tags": {
     "language": "C#",
