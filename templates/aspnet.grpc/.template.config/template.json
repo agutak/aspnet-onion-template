@@ -34,6 +34,7 @@
     "711D4A0A-28D2-4A6C-8510-70BE86339F7F",
     "C66552AC-A68B-4B4F-B2D3-BBC3819C9F38"
   ],
+  "primaryOutputs": [{ "path": "MyTemplate.sln" }],
   "sources": [
     {
       "source": "./",
@@ -55,33 +56,15 @@
         {
           "condition": "(!MongoDBPersistence)",
           "exclude": [
-            "**/src/MyTemplate.Persistence.MongoDb/**",
-            "Solution.MongoDb.sln",
-            "**/src/MyTemplate.API/appsettings.MongoDb.json",
-            "**/src/MyTemplate.API/appsettings.MongoDb.*.json"
-          ],
-          "rename": {
-            "Solution.MsSql.sln": "Solution.sln",
-            "appsettings.MsSql.json": "appsettings.json",
-            "appsettings.MsSql.Local.json": "appsettings.Local.json",
-            "appsettings.MsSql.Development.json": "appsettings.Development.json"
-          }
+            "**/src/MyTemplate.Persistence.MongoDb/**"
+          ]
         },
         {
           "condition": "(!MsSqlPersistence)",
           "exclude": [
             "**/src/MyTemplate.Persistence.MsSql/**",
-            "**/src/MyTemplate.Persistence.MsSql.Migrations/**",
-            "Solution.MsSql.sln",
-            "**/src/MyTemplate.API/appsettings.MsSql.json",
-            "**/src/MyTemplate.API/appsettings.MsSql.*.json"
-          ],
-          "rename": {
-            "Solution.MongoDb.sln": "Solution.sln",
-            "appsettings.MongoDb.json": "appsettings.json",
-            "appsettings.MongoDb.Local.json": "appsettings.Local.json",
-            "appsettings.MongoDb.Development.json": "appsettings.Development.json"
-          }
+            "**/src/MyTemplate.Persistence.MsSql.Migrations/**"
+          ]
         },
         {
           "condition": "(UseMinimalAPIs)",
@@ -93,6 +76,12 @@
           "condition": "(UseControllers)",
           "exclude": [
             "**/src/MyTemplate.API/Endpoints/**"
+          ]
+        },
+        {
+          "condition": "(!IncludeHelmChart)",
+          "exclude": [
+            "**/MyTemplateChart/**"
           ]
         }
       ]
@@ -135,6 +124,13 @@
       "defaultValue": "false",
       "displayName": "Use controllers (uncheck to use minimal APIs)",
       "description": "Whether to use controllers instead of minimal APIs."
+    },
+    "IncludeHelmChart": {
+      "type": "parameter",
+      "datatype": "bool",
+      "defaultValue": "false",
+      "displayName": "Add a Helm chart to the solution",
+      "description": "Whether to add a folder with Helm chart to the solution."
     },
     "MongoDBPersistence": {
       "type": "computed",

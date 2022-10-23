@@ -1,0 +1,13 @@
+{
+    "$schema": "http://json.schemastore.org/ide.host",
+    "defaultSymbolVisibility": true,
+    "icon": "icon.png",
+    "learnMoreLink": "https://github.com/agutak/aspnet-onion-template#readme",
+    "order": 0,
+    "symbolInfo": [
+        {
+            "id": "IncludeHelmChart",
+            "isVisible": true
+        }
+  ]
+}
