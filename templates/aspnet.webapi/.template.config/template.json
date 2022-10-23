@@ -9,7 +9,7 @@
   ],
   "name": "ASP.NET WebAPI Onion Architecture Solution",
   "shortName": "oa-sln-aspnet-webapi",
-  "defaultName": "WebApiSolution",
+  "defaultName": "WebApiSolution1",
   "description": "The ASP.NET Web API template with Onion architecture",
   "identity": "AHutak.OnionArchitecture.AspNet.WebAPI",
   "groupIdentity": "AHutak.OnionArchitecture",
@@ -34,6 +34,7 @@
     "711D4A0A-28D2-4A6C-8510-70BE86339F7F",
     "C66552AC-A68B-4B4F-B2D3-BBC3819C9F38"
   ],
+  "primaryOutputs": [{ "path": "MyTemplate.sln" }],
   "sources": [
     {
       "source": "./",
@@ -55,33 +56,15 @@
         {
           "condition": "(!MongoDBPersistence)",
           "exclude": [
-            "**/src/MyTemplate.Persistence.MongoDb/**",
-            "Solution.MongoDb.sln",
-            "**/src/MyTemplate.API/appsettings.MongoDb.json",
-            "**/src/MyTemplate.API/appsettings.MongoDb.*.json"
-          ],
-          "rename": {
-            "Solution.MsSql.sln": "Solution.sln",
-            "appsettings.MsSql.json": "appsettings.json",
-            "appsettings.MsSql.Local.json": "appsettings.Local.json",
-            "appsettings.MsSql.Development.json": "appsettings.Development.json"
-          }
+            "**/src/MyTemplate.Persistence.MongoDb/**"
+          ]
         },
         {
           "condition": "(!MsSqlPersistence)",
           "exclude": [
             "**/src/MyTemplate.Persistence.MsSql/**",
-            "**/src/MyTemplate.Persistence.MsSql.Migrations/**",
-            "Solution.MsSql.sln",
-            "**/src/MyTemplate.API/appsettings.MsSql.json",
-            "**/src/MyTemplate.API/appsettings.MsSql.*.json"
-          ],
-          "rename": {
-            "Solution.MongoDb.sln": "Solution.sln",
-            "appsettings.MongoDb.json": "appsettings.json",
-            "appsettings.MongoDb.Local.json": "appsettings.Local.json",
-            "appsettings.MongoDb.Development.json": "appsettings.Development.json"
-          }
+            "**/src/MyTemplate.Persistence.MsSql.Migrations/**"
+          ]
         },
         {
           "condition": "(UseMinimalAPIs)",
