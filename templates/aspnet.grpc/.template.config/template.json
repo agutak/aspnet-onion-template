@@ -11,8 +11,8 @@
   "shortName": "oa-sln-aspnet-grpc",
   "defaultName": "GrpcSolution1",
   "description": "The ASP.NET gRPC template with Onion architecture",
-  "identity": "AHutak.OnionArchitecture.AspNet.gRPC",
-  "groupIdentity": "AHutak.OnionArchitecture",
+  "identity": "AHutak.OnionArchitecture.AspNet.gRPC.CSharp",
+  "groupIdentity": "AHutak.OnionArchitecture.AspNet.gRPC",
   "tags": {
     "language": "C#",
     "type": "solution"

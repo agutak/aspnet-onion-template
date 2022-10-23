@@ -11,8 +11,8 @@
   "shortName": "oa-sln-aspnet-webapi",
   "defaultName": "WebApiSolution1",
   "description": "The ASP.NET Web API template with Onion architecture",
-  "identity": "AHutak.OnionArchitecture.AspNet.WebAPI",
-  "groupIdentity": "AHutak.OnionArchitecture",
+  "identity": "AHutak.OnionArchitecture.AspNet.WebAPI.CSharp",
+  "groupIdentity": "AHutak.OnionArchitecture.AspNet.WebAPI",
   "tags": {
     "language": "C#",
     "type": "solution"
