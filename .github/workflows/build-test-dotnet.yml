@@ -1,4 +1,4 @@
-name: .NET Build & Test
+name: .NET Build
 
 on:
   push:
@@ -7,28 +7,33 @@ on:
     branches: [ "master" ]
 
 jobs:
-  build:
-
+  build_webapi:
     runs-on: ubuntu-latest
-    
     steps:
     - uses: actions/checkout@v3
     - name: Setup .NET
       uses: actions/setup-dotnet@v2
       with:
-        dotnet-version: 6.0.x
+        dotnet-version: |
+            6.0.x
     - name: Restore dependencies
-      run: dotnet restore Solution.sln
-      working-directory: ./templates/aspnet6.onion
+      run: dotnet restore MyTemplate.sln
+      working-directory: ./templates/aspnet.webapi
     - name: Build
       run: dotnet build --no-restore
-      working-directory: ./templates/aspnet6.onion/src/MyTemplate.API
-    - name: Unittest Domain Layer
-      run: dotnet test MyTemplate.Domain.UnitTests.csproj --no-restore --verbosity normal
-      working-directory: templates/aspnet6.onion/tests/MyTemplate.Domain.UnitTests
-    - name: Unittest Application Layer
-      run: dotnet test MyTemplate.Application.UnitTests.csproj --no-restore --verbosity normal
-      working-directory: templates/aspnet6.onion/tests/MyTemplate.Application.UnitTests
-    - name: Componenttest Application
-      run: dotnet test MyTemplate.API.ComponentTests.csproj --no-restore --verbosity normal
-      working-directory: templates/aspnet6.onion/tests/MyTemplate.API.ComponentTests
+      working-directory: ./templates/aspnet.webapi/src/MyTemplate.API
+  build_grpc:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v2
+      with:
+        dotnet-version: |
+            6.0.x
+    - name: Restore dependencies
+      run: dotnet restore MyTemplate.sln
+      working-directory: ./templates/aspnet.grpc
+    - name: Build
+      run: dotnet build --no-restore
+      working-directory: ./templates/aspnet.grpc/src/MyTemplate.API

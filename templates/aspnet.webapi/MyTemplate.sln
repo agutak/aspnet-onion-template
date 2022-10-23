@@ -1,0 +1,116 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32630.192
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{20419956-36B6-4983-9569-4944B113047A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{21565AF6-96CA-45CF-8AB3-F50E69ACA067}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyTemplate.API", "src\MyTemplate.API\MyTemplate.API.csproj", "{F74D281F-AA8C-4A59-9238-CFFA12A2268B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyTemplate.Domain", "src\MyTemplate.Domain\MyTemplate.Domain.csproj", "{A0AB9A45-0F13-4AC7-8DDD-EDA1F1175473}"
+EndProject
+#if (MongoDBPersistence)
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyTemplate.Persistence.MongoDb", "src\MyTemplate.Persistence.MongoDb\MyTemplate.Persistence.MongoDb.csproj", "{C66552AC-A68B-4B4F-B2D3-BBC3819C9F38}"
+EndProject
+#endif
+#if (MsSqlPersistence)
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyTemplate.Persistence.MsSql", "src\MyTemplate.Persistence.MsSql\MyTemplate.Persistence.MsSql.csproj", "{2C2A9C2B-9CFA-4E44-9D7E-E654CC3D06D9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyTemplate.Persistence.MsSql.Migrations", "src\MyTemplate.Persistence.MsSql.Migrations\MyTemplate.Persistence.MsSql.Migrations.csproj", "{F4DB687C-4411-40FA-9A49-50B8A518D888}"
+EndProject
+#endif
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyTemplate.Application", "src\MyTemplate.Application\MyTemplate.Application.csproj", "{C2979C17-F849-4339-99CA-2DA4CE740A75}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyTemplate.Infrastructure", "src\MyTemplate.Infrastructure\MyTemplate.Infrastructure.csproj", "{22857AAC-388E-4AAE-A484-8176AE4A0F84}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyTemplate.Domain.UnitTests", "tests\MyTemplate.Domain.UnitTests\MyTemplate.Domain.UnitTests.csproj", "{5E3627C9-7747-4E82-93D9-B3455FD2F370}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyTemplate.Application.UnitTests", "tests\MyTemplate.Application.UnitTests\MyTemplate.Application.UnitTests.csproj", "{0EA9A06D-B846-4352-962F-CB03BC480467}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyTemplate.API.ComponentTests", "tests\MyTemplate.API.ComponentTests\MyTemplate.API.ComponentTests.csproj", "{711D4A0A-28D2-4A6C-8510-70BE86339F7F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{781CC6D2-ACC5-43C2-9365-306814C7BB24}"
+	ProjectSection(SolutionItems) = preProject
+		.dockerignore = .dockerignore
+		.editorconfig = .editorconfig
+		.gitignore = .gitignore
+		LICENSE = LICENSE
+		README.md = README.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F74D281F-AA8C-4A59-9238-CFFA12A2268B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F74D281F-AA8C-4A59-9238-CFFA12A2268B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F74D281F-AA8C-4A59-9238-CFFA12A2268B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F74D281F-AA8C-4A59-9238-CFFA12A2268B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0AB9A45-0F13-4AC7-8DDD-EDA1F1175473}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0AB9A45-0F13-4AC7-8DDD-EDA1F1175473}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0AB9A45-0F13-4AC7-8DDD-EDA1F1175473}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0AB9A45-0F13-4AC7-8DDD-EDA1F1175473}.Release|Any CPU.Build.0 = Release|Any CPU
+		#if (MongoDBPersistence)
+		{C66552AC-A68B-4B4F-B2D3-BBC3819C9F38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C66552AC-A68B-4B4F-B2D3-BBC3819C9F38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C66552AC-A68B-4B4F-B2D3-BBC3819C9F38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C66552AC-A68B-4B4F-B2D3-BBC3819C9F38}.Release|Any CPU.Build.0 = Release|Any CPU
+		#endif
+		#if (MsSqlPersistence)
+		{2C2A9C2B-9CFA-4E44-9D7E-E654CC3D06D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C2A9C2B-9CFA-4E44-9D7E-E654CC3D06D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C2A9C2B-9CFA-4E44-9D7E-E654CC3D06D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C2A9C2B-9CFA-4E44-9D7E-E654CC3D06D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4DB687C-4411-40FA-9A49-50B8A518D888}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4DB687C-4411-40FA-9A49-50B8A518D888}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4DB687C-4411-40FA-9A49-50B8A518D888}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4DB687C-4411-40FA-9A49-50B8A518D888}.Release|Any CPU.Build.0 = Release|Any CPU
+		#endif
+		{C2979C17-F849-4339-99CA-2DA4CE740A75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2979C17-F849-4339-99CA-2DA4CE740A75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2979C17-F849-4339-99CA-2DA4CE740A75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2979C17-F849-4339-99CA-2DA4CE740A75}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22857AAC-388E-4AAE-A484-8176AE4A0F84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22857AAC-388E-4AAE-A484-8176AE4A0F84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22857AAC-388E-4AAE-A484-8176AE4A0F84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22857AAC-388E-4AAE-A484-8176AE4A0F84}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E3627C9-7747-4E82-93D9-B3455FD2F370}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E3627C9-7747-4E82-93D9-B3455FD2F370}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E3627C9-7747-4E82-93D9-B3455FD2F370}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E3627C9-7747-4E82-93D9-B3455FD2F370}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0EA9A06D-B846-4352-962F-CB03BC480467}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0EA9A06D-B846-4352-962F-CB03BC480467}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0EA9A06D-B846-4352-962F-CB03BC480467}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0EA9A06D-B846-4352-962F-CB03BC480467}.Release|Any CPU.Build.0 = Release|Any CPU
+		{711D4A0A-28D2-4A6C-8510-70BE86339F7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{711D4A0A-28D2-4A6C-8510-70BE86339F7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{711D4A0A-28D2-4A6C-8510-70BE86339F7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{711D4A0A-28D2-4A6C-8510-70BE86339F7F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F74D281F-AA8C-4A59-9238-CFFA12A2268B} = {20419956-36B6-4983-9569-4944B113047A}
+		{A0AB9A45-0F13-4AC7-8DDD-EDA1F1175473} = {20419956-36B6-4983-9569-4944B113047A}
+		#if (MongoDBPersistence)
+		{C66552AC-A68B-4B4F-B2D3-BBC3819C9F38} = {20419956-36B6-4983-9569-4944B113047A}
+		#endif
+		#if (MsSqlPersistence)
+		{2C2A9C2B-9CFA-4E44-9D7E-E654CC3D06D9} = {20419956-36B6-4983-9569-4944B113047A}
+		{F4DB687C-4411-40FA-9A49-50B8A518D888} = {20419956-36B6-4983-9569-4944B113047A}
+		#endif
+		{C2979C17-F849-4339-99CA-2DA4CE740A75} = {20419956-36B6-4983-9569-4944B113047A}
+		{22857AAC-388E-4AAE-A484-8176AE4A0F84} = {20419956-36B6-4983-9569-4944B113047A}
+		{5E3627C9-7747-4E82-93D9-B3455FD2F370} = {21565AF6-96CA-45CF-8AB3-F50E69ACA067}
+		{0EA9A06D-B846-4352-962F-CB03BC480467} = {21565AF6-96CA-45CF-8AB3-F50E69ACA067}
+		{711D4A0A-28D2-4A6C-8510-70BE86339F7F} = {21565AF6-96CA-45CF-8AB3-F50E69ACA067}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1418DC87-366B-4E4C-8380-88B1F1CB32F0}
+	EndGlobalSection
+EndGlobal

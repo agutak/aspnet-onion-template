@@ -1,0 +1,148 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "Anatolii Hutak",
+  "classifications": [
+    "Web",
+    "gRPC",
+    "Onion Architecture",
+    "Solution"
+  ],
+  "name": "ASP.NET gRPC Onion Architecture Solution",
+  "shortName": "oa-sln-aspnet-grpc",
+  "defaultName": "GrpcSolution1",
+  "description": "The ASP.NET gRPC template with Onion architecture",
+  "identity": "AHutak.OnionArchitecture.AspNet.gRPC.CSharp",
+  "groupIdentity": "AHutak.OnionArchitecture.AspNet.gRPC",
+  "tags": {
+    "language": "C#",
+    "type": "solution"
+  },
+  "sourceName": "MyTemplate",
+  "preferNameDirectory": true,
+  "guids": [
+    "20419956-36B6-4983-9569-4944B113047A",
+    "A0AB9A45-0F13-4AC7-8DDD-EDA1F1175473",
+    "2C2A9C2B-9CFA-4E44-9D7E-E654CC3D06D9",
+    "C2979C17-F849-4339-99CA-2DA4CE740A75",
+    "21565AF6-96CA-45CF-8AB3-F50E69ACA067",
+    "F74D281F-AA8C-4A59-9238-CFFA12A2268B",
+    "5E3627C9-7747-4E82-93D9-B3455FD2F370",
+    "0EA9A06D-B846-4352-962F-CB03BC480467",
+    "781CC6D2-ACC5-43C2-9365-306814C7BB24",
+    "22857AAC-388E-4AAE-A484-8176AE4A0F84",
+    "F4DB687C-4411-40FA-9A49-50B8A518D888",
+    "711D4A0A-28D2-4A6C-8510-70BE86339F7F",
+    "C66552AC-A68B-4B4F-B2D3-BBC3819C9F38"
+  ],
+  "primaryOutputs": [{ "path": "MyTemplate.sln" }],
+  "sources": [
+    {
+      "source": "./",
+      "target": "./",
+      "exclude": [
+        "**/[Bb]in/**",
+        "**/[Oo]bj/**",
+        ".template.config/**/*",
+        ".vs/**/*",
+        "**/*.filelist",
+        "**/*.user",
+        "**/*.lock.json",
+        "**/.git/**",
+        "*.nuspec",
+        "**/node_modules/**",
+        "Solution.sln"
+      ],
+      "modifiers": [
+        {
+          "condition": "(!MongoDBPersistence)",
+          "exclude": [
+            "**/src/MyTemplate.Persistence.MongoDb/**"
+          ]
+        },
+        {
+          "condition": "(!MsSqlPersistence)",
+          "exclude": [
+            "**/src/MyTemplate.Persistence.MsSql/**",
+            "**/src/MyTemplate.Persistence.MsSql.Migrations/**"
+          ]
+        },
+        {
+          "condition": "(UseMinimalAPIs)",
+          "exclude": [
+            "**/src/MyTemplate.API/Controllers/**"
+          ]
+        },
+        {
+          "condition": "(UseControllers)",
+          "exclude": [
+            "**/src/MyTemplate.API/Endpoints/**"
+          ]
+        },
+        {
+          "condition": "(!IncludeHelmChart)",
+          "exclude": [
+            "**/MyTemplateChart/**"
+          ]
+        }
+      ]
+    }
+  ],
+  "symbols": {
+    "Framework": {
+      "type": "parameter",
+      "description": "The target framework for the project",
+      "datatype": "choice",
+      "choices": [
+        {
+          "choice": "net6.0",
+          "description": "Target net6.0"
+        }
+      ],
+      "defaultValue": "net6.0",
+      "replaces": "net6.0"
+    },
+    "Persistence": {
+      "type": "parameter",
+      "displayName": "Persistence layer implementation",
+      "description": "The implementation for the persistence layer",
+      "datatype": "choice",
+      "choices": [
+        {
+          "choice": "MS SQL (EF Core)",
+          "description": "MS SQL persistence implementation"
+        },
+        {
+          "choice": "MongoDB",
+          "description": "MongoDB persistence implementation"
+        }
+      ],
+      "defaultValue": "MS SQL (EF Core)"
+    },
+    "UseControllers": {
+      "type": "parameter",
+      "datatype": "bool",
+      "defaultValue": "false",
+      "displayName": "Use controllers (uncheck to use minimal APIs)",
+      "description": "Whether to use controllers instead of minimal APIs."
+    },
+    "IncludeHelmChart": {
+      "type": "parameter",
+      "datatype": "bool",
+      "defaultValue": "false",
+      "displayName": "Add a Helm chart to the solution",
+      "description": "Whether to add a folder with Helm chart to the solution."
+    },
+    "MongoDBPersistence": {
+      "type": "computed",
+      "value": "(Persistence == \"MongoDB\")"
+    },
+    "MsSqlPersistence": {
+      "type": "computed",
+      "value": "(Persistence == \"MS SQL (EF Core)\")"
+    },
+    "UseMinimalAPIs": {
+      "type": "computed",
+      "value": "(!UseControllers)"
+    }
+  }
+}

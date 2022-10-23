@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <RootNamespace>MyTemplate.API</RootNamespace>
+    <AssemblyName>MyTemplate.API</AssemblyName>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerfileContext>..\..</DockerfileContext>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="MyTemplate.API.ComponentTests" />
+  </ItemGroup>
+
+  <ItemGroup>
+	<Protobuf Include="GrpcServices\WeatherForecasting\Protos\weatherForecast.proto" GrpcServices="Server" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="Grpc.AspNetCore" Version="2.49.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.17.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MyTemplate.Application\MyTemplate.Application.csproj" />
+    <ProjectReference Include="..\MyTemplate.Infrastructure\MyTemplate.Infrastructure.csproj" />
+    <ProjectReference Include="..\MyTemplate.Persistence.MongoDb\MyTemplate.Persistence.MongoDb.csproj" Condition="'$(MongoDBPersistence)' == 'True'" />
+    <ProjectReference Include="..\MyTemplate.Persistence.MsSql\MyTemplate.Persistence.MsSql.csproj" Condition="'$(MsSqlPersistence)' == 'True'" />
+  </ItemGroup>
+
+</Project>
