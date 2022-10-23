@@ -1,7 +1,6 @@
 ﻿#if (UseMinimalAPIs)
 using MyTemplate.API.Endpoints.WeatherForecasts;
 #endif
-using MyTemplate.API.GrpcServices;
 using MyTemplate.API.GrpcServices.WeatherForecasting;
 using MyTemplate.Application.Extensions;
 #if (MongoDBPersistence)
@@ -12,6 +11,9 @@ using MyTemplate.Persistence.MsSql.Extensions;
 #endif
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Logging.ClearProviders();
+builder.Logging.AddJsonConsole();
 
 // Add services to the container.
 #if (UseControllers)
