@@ -2,9 +2,9 @@
 
 internal class UnitOfWork : IUnitOfWork
 {
-    private readonly MyDbContext _dbContext;
+    private readonly MyTemplateContext _dbContext;
 
-    public UnitOfWork(MyDbContext dbContext)
+    public UnitOfWork(MyTemplateContext dbContext)
     {
         _dbContext = dbContext;
     }

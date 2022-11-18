@@ -49,8 +49,7 @@
         "**/*.lock.json",
         "**/.git/**",
         "*.nuspec",
-        "**/node_modules/**",
-        "Solution.sln"
+        "**/node_modules/**"
       ],
       "modifiers": [
         {
@@ -64,6 +63,19 @@
           "exclude": [
             "**/src/MyTemplate.Persistence.MsSql/**",
             "**/src/MyTemplate.Persistence.MsSql.Migrations/**"
+          ]
+        },
+        {
+          "condition": "(!UseEfMigrations)",
+          "exclude": [
+            "**/src/MyTemplate.Persistence.MsSql.Migrations/**"
+          ]
+        },
+        {
+          "condition": "(!UseRest)",
+          "exclude": [
+            "**/src/MyTemplate.API/Controllers/**",
+            "**/src/MyTemplate.API/Endpoints/**"
           ]
         },
         {
@@ -96,6 +108,10 @@
         {
           "choice": "net6.0",
           "description": "Target net6.0"
+        },
+        {
+          "choice": "net7.0",
+          "description": "Target net7.0"
         }
       ],
       "defaultValue": "net6.0",
@@ -118,7 +134,23 @@
       ],
       "defaultValue": "MS SQL (EF Core)"
     },
+    "UseEfMigrations": {
+      "isEnabled": "(MsSqlPersistence)",
+      "type": "parameter",
+      "datatype": "bool",
+      "defaultValue": "false",
+      "displayName": "Include EF migrations",
+      "description": "Whether to include a separate Entity Framework Core migrations assembly."
+    },
+    "UseRest": {
+      "type": "parameter",
+      "datatype": "bool",
+      "defaultValue": "false",
+      "displayName": "Include Web API controllers or minimal APIs",
+      "description": "Whether to include WebAPI controllers or minimal APIs."
+    },
     "UseControllers": {
+      "isEnabled": "(UseRest)",
       "type": "parameter",
       "datatype": "bool",
       "defaultValue": "false",
@@ -142,7 +174,7 @@
     },
     "UseMinimalAPIs": {
       "type": "computed",
-      "value": "(!UseControllers)"
+      "value": "(UseRest && !UseControllers)"
     }
   }
 }

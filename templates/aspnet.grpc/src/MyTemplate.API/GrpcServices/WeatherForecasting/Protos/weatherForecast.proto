@@ -16,15 +16,15 @@ service WeatherForecasts {
 }
 
 message GetWeatherForecastRequest {
-    string Id = 1;
+    string id = 1;
 }
 
 message WeatherForecast {
-  string Id = 1;
-  google.protobuf.Timestamp Date = 2;
-  int32 TemperatureC = 3;
-  int32 TemperatureF = 4;
-  google.protobuf.StringValue Summary = 5;
+  string id = 1;
+  google.protobuf.Timestamp date = 2;
+  int32 temperature_c = 3;
+  int32 temperature_f = 4;
+  google.protobuf.StringValue summary = 5;
 }
 
 message GetWeatherForecastResponse {
@@ -36,18 +36,18 @@ message GetWeatherForecastsResponse {
 }
 
 message CreateWeatherForecastRequest {
-    google.protobuf.Timestamp Date = 1;
-    int32 TemperatureC = 2;
-    google.protobuf.StringValue Summary = 3;
+    google.protobuf.Timestamp date = 1;
+    int32 temperature_c = 2;
+    google.protobuf.StringValue summary = 3;
 }
 
 message CreateWeatherForecastResponse {
-    string Id = 1;
+    string id = 1;
 }
 
 message UpdateWeatherForecastRequest {
-    string Id = 1;
-    google.protobuf.Timestamp Date = 2;
-    int32 TemperatureC = 3;
-    google.protobuf.StringValue Summary = 4;
+    string id = 1;
+    google.protobuf.Timestamp date = 2;
+    int32 temperature_c = 3;
+    google.protobuf.StringValue summary = 4;
 }

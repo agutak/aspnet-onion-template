@@ -10,7 +10,7 @@ using MyTemplate.Persistence.MsSql.Context;
 
 namespace MyTemplate.Persistence.MsSql.Migrations.Migrations
 {
-    [DbContext(typeof(MyDbContext))]
+    [DbContext(typeof(MyTemplateContext))]
     [Migration("20220716221712_InitialEmptyMigration")]
     partial class InitialEmptyMigration
     {

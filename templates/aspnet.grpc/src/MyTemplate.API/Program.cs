@@ -22,9 +22,10 @@ builder.Services.AddControllers();
 
 builder.Services.AddGrpc();
 
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+#if (UseRest)
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+#endif
 
 #if (MsSqlPersistence)
 builder.Services.RegisterMsSqlPersistenceServices(builder.Configuration);
@@ -38,17 +39,19 @@ builder.Services.RegisterApplicationServices();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
+
+#if (UseRest)
 if (app.Environment.IsEnvironment("Local") ||
     app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+#endif
 
 #if (UseMinimalAPIs)
 app.RegisterWeatherForecastsEndpoints();
-#endif
-#if (UseControllers)
+#elif (UseControllers)
 app.MapControllers();
 #endif
 

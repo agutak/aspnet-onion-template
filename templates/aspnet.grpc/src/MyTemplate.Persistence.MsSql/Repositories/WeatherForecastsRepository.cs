@@ -2,7 +2,7 @@
 
 internal class WeatherForecastsRepository : Repository<WeatherForecast, Guid>, IWeatherForecastsRepository
 {
-    public WeatherForecastsRepository(MyDbContext dbContext) : base(dbContext)
+    public WeatherForecastsRepository(MyTemplateContext dbContext) : base(dbContext)
     {
     }
 }
