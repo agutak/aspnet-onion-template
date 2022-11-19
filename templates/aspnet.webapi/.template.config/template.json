@@ -121,9 +121,17 @@
       ],
       "defaultValue": "MS SQL (EF Core)"
     },
+    "MongoDBPersistence": {
+      "type": "computed",
+      "value": "(Persistence == \"MongoDB\")"
+    },
+    "MsSqlPersistence": {
+      "type": "computed",
+      "value": "(Persistence == \"MS SQL (EF Core)\")"
+    },
     "UseEfMigrations": {
-      "isEnabled": "(MsSqlPersistence)",
       "type": "parameter",
+      "isEnabled": "MsSqlPersistence == true",
       "datatype": "bool",
       "defaultValue": "false",
       "displayName": "Include EF migrations",
@@ -135,14 +143,6 @@
       "defaultValue": "false",
       "displayName": "Use controllers (uncheck to use minimal APIs)",
       "description": "Whether to use controllers instead of minimal APIs."
-    },
-    "MongoDBPersistence": {
-      "type": "computed",
-      "value": "(Persistence == \"MongoDB\")"
-    },
-    "MsSqlPersistence": {
-      "type": "computed",
-      "value": "(Persistence == \"MS SQL (EF Core)\")"
     },
     "UseMinimalAPIs": {
       "type": "computed",

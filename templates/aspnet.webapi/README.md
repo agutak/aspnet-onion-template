@@ -1,3 +1,3 @@
-# ASP.NET 6 Web API solution with onion architecture
+# ASP.NET Web API solution with onion architecture
 
 // Add your description here...

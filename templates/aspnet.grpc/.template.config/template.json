@@ -132,10 +132,18 @@
           "description": "MongoDB persistence implementation"
         }
       ],
-      "defaultValue": "MS SQL (EF Core)"
+      "defaultValue": "MongoDB"
+    },
+    "MongoDBPersistence": {
+      "type": "computed",
+      "value": "(Persistence == \"MongoDB\")"
+    },
+    "MsSqlPersistence": {
+      "type": "computed",
+      "value": "(Persistence == \"MS SQL (EF Core)\")"
     },
     "UseEfMigrations": {
-      "isEnabled": "(MsSqlPersistence)",
+      "isEnabled": "MsSqlPersistence == true",
       "type": "parameter",
       "datatype": "bool",
       "defaultValue": "false",
@@ -146,16 +154,20 @@
       "type": "parameter",
       "datatype": "bool",
       "defaultValue": "false",
-      "displayName": "Include Web API controllers or minimal APIs",
+      "displayName": "Include RESTful API",
       "description": "Whether to include WebAPI controllers or minimal APIs."
     },
     "UseControllers": {
-      "isEnabled": "(UseRest)",
+      "isEnabled": "UseRest == true",
       "type": "parameter",
       "datatype": "bool",
       "defaultValue": "false",
       "displayName": "Use controllers (uncheck to use minimal APIs)",
       "description": "Whether to use controllers instead of minimal APIs."
+    },
+    "UseMinimalAPIs": {
+      "type": "computed",
+      "value": "(UseRest && !UseControllers)"
     },
     "IncludeHelmChart": {
       "type": "parameter",
@@ -163,18 +175,7 @@
       "defaultValue": "false",
       "displayName": "Add a Helm chart to the solution",
       "description": "Whether to add a folder with Helm chart to the solution."
-    },
-    "MongoDBPersistence": {
-      "type": "computed",
-      "value": "(Persistence == \"MongoDB\")"
-    },
-    "MsSqlPersistence": {
-      "type": "computed",
-      "value": "(Persistence == \"MS SQL (EF Core)\")"
-    },
-    "UseMinimalAPIs": {
-      "type": "computed",
-      "value": "(UseRest && !UseControllers)"
     }
+    
   }
 }
