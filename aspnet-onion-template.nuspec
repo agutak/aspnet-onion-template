@@ -14,7 +14,7 @@
       - Persistence.Migrations project is made optional
 	  </releaseNotes>
     <projectUrl>https://github.com/agutak/aspnet-onion-template</projectUrl>
-    <repository type="git" url="https://github.com/agutak/aspnet-onion-template.git" branch="master" commit="e1c65e4524cd70ee6e22abe33e6cb6ec73938cb3" />
+    <repository type="git" url="https://github.com/agutak/aspnet-onion-template.git" branch="releases/release2.0.0" />
     <license type="expression">MIT</license>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <tags>onion-architecture templates csharp dotnet dotnet-new</tags>
