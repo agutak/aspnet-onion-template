@@ -25,31 +25,39 @@ The template of your choise contains either:
 
 ### Installing the templates
 
-To install this templates package on your system run the following command with the latest package version
+To install this package on your system run the following command with the latest package version
 
 ``` dotnet new --install AHutak.OnionArchitecture.AspNet::<latest version> ```
 
 You should see the message as shown below which indicates successfull installation
 
-![image](https://user-images.githubusercontent.com/25172188/182178033-81915e64-19e4-4cec-845f-ec44d6dc1048.png)
+![image](https://user-images.githubusercontent.com/25172188/208269429-cd8faa56-255d-4019-8839-5a8f80ffd918.png)
 
 After that you have several options, to use it either from Visual Studio 2022 or from command-line.  
 
 #### From Visual Studio 2022:
 
-![image](https://user-images.githubusercontent.com/25172188/182181390-03ede690-426e-49a3-85a6-f588b8edb60a.png)
+![image](https://user-images.githubusercontent.com/25172188/208269465-dec81650-9cac-4f20-af2f-cf03b1377ce0.png)
 
 ![image](https://user-images.githubusercontent.com/25172188/182181727-e2fda348-8eca-4dad-8bdd-479b0e7cf428.png)
 
 #### From command-line:
 
+``` dotnet new oa-sln-aspnet-grpc -n Your-Project-Name ```
+
+or
+
 ``` dotnet new oa-sln-aspnet-webapi -n Your-Project-Name ```
 
 To view other available command-line solution parameters please run
 
+``` dotnet new oa-sln-aspnet-grpc --help ```
+
+or
+
 ``` dotnet new oa-sln-aspnet-webapi --help ```
 
-At the moment this template supports two persistence layer implementations: 
+At the moment these templates support two persistence layer implementations: 
 - MS SQL with EF Core
 - MongoDB.  
 
