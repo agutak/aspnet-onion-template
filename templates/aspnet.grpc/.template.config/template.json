@@ -34,7 +34,6 @@
     "711D4A0A-28D2-4A6C-8510-70BE86339F7F",
     "C66552AC-A68B-4B4F-B2D3-BBC3819C9F38"
   ],
-  "primaryOutputs": [{ "path": "MyTemplate.sln" }],
   "sources": [
     {
       "source": "./",
@@ -119,7 +118,6 @@
       "value": "(Persistence == \"MS SQL (EF Core)\")"
     },
     "UseEfMigrations": {
-      "isEnabled": "MsSqlPersistence == true",
       "type": "parameter",
       "datatype": "bool",
       "defaultValue": "false",
