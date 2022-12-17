@@ -23,9 +23,9 @@ The template of your choise contains either:
 
 ## Getting Started
 
-### Installing the template
+### Installing the templates
 
-To install this template on your system run the following command with the latest package version
+To install this templates package on your system run the following command with the latest package version
 
 ``` dotnet new --install AHutak.OnionArchitecture.AspNet::<latest version> ```
 
@@ -43,11 +43,11 @@ After that you have several options, to use it either from Visual Studio 2022 or
 
 #### From command-line:
 
-``` dotnet new oa-sln-aspnet -n Your-Project-Name ```
+``` dotnet new oa-sln-aspnet-webapi -n Your-Project-Name ```
 
 To view other available command-line solution parameters please run
 
-``` dotnet new oa-sln-aspnet --help ```
+``` dotnet new oa-sln-aspnet-webapi --help ```
 
 At the moment this template supports two persistence layer implementations: 
 - MS SQL with EF Core
