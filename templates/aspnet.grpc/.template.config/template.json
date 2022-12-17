@@ -49,7 +49,8 @@
         "**/*.lock.json",
         "**/.git/**",
         "*.nuspec",
-        "**/node_modules/**"
+        "**/node_modules/**",
+        "**/TestResults/**"
       ],
       "modifiers": [
         {
@@ -69,31 +70,6 @@
           "condition": "(!UseEfMigrations)",
           "exclude": [
             "**/src/MyTemplate.Persistence.MsSql.Migrations/**"
-          ]
-        },
-        {
-          "condition": "(!UseRest)",
-          "exclude": [
-            "**/src/MyTemplate.API/Controllers/**",
-            "**/src/MyTemplate.API/Endpoints/**"
-          ]
-        },
-        {
-          "condition": "(UseMinimalAPIs)",
-          "exclude": [
-            "**/src/MyTemplate.API/Controllers/**"
-          ]
-        },
-        {
-          "condition": "(UseControllers)",
-          "exclude": [
-            "**/src/MyTemplate.API/Endpoints/**"
-          ]
-        },
-        {
-          "condition": "(!IncludeHelmChart)",
-          "exclude": [
-            "**/MyTemplateChart/**"
           ]
         }
       ]
@@ -149,33 +125,6 @@
       "defaultValue": "false",
       "displayName": "Include EF migrations",
       "description": "Whether to include a separate Entity Framework Core migrations assembly."
-    },
-    "UseRest": {
-      "type": "parameter",
-      "datatype": "bool",
-      "defaultValue": "false",
-      "displayName": "Include RESTful API",
-      "description": "Whether to include WebAPI controllers or minimal APIs."
-    },
-    "UseControllers": {
-      "isEnabled": "UseRest == true",
-      "type": "parameter",
-      "datatype": "bool",
-      "defaultValue": "false",
-      "displayName": "Use controllers (uncheck to use minimal APIs)",
-      "description": "Whether to use controllers instead of minimal APIs."
-    },
-    "UseMinimalAPIs": {
-      "type": "computed",
-      "value": "(UseRest && !UseControllers)"
-    },
-    "IncludeHelmChart": {
-      "type": "parameter",
-      "datatype": "bool",
-      "defaultValue": "false",
-      "displayName": "Add a Helm chart to the solution",
-      "description": "Whether to add a folder with Helm chart to the solution."
     }
-    
   }
 }
