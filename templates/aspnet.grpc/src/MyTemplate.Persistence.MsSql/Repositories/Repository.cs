@@ -6,11 +6,11 @@ internal abstract class Repository<T, TId> : IRepository<T, TId>
     where T : class, IEntity<TId>
     where TId : struct, IEquatable<TId>, IComparable<TId>
 {
-    protected readonly MyDbContext _dbContext;
+    protected readonly MyTemplateContext _dbContext;
     protected readonly DbSet<T> _set;
     protected readonly IQueryable<T> _readOnlySet;
 
-    public Repository(MyDbContext dbContext)
+    public Repository(MyTemplateContext dbContext)
     {
         _dbContext = dbContext;
         _set = dbContext.Set<T>();

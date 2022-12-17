@@ -9,8 +9,8 @@ using MyTemplate.Persistence.MsSql.Context;
 
 namespace MyTemplate.Persistence.MsSql.Migrations.Migrations
 {
-    [DbContext(typeof(MyDbContext))]
-    partial class MyDbContextModelSnapshot : ModelSnapshot
+    [DbContext(typeof(MyTemplateContext))]
+    partial class MyTemplateContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {

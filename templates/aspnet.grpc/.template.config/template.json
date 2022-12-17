@@ -34,7 +34,6 @@
     "711D4A0A-28D2-4A6C-8510-70BE86339F7F",
     "C66552AC-A68B-4B4F-B2D3-BBC3819C9F38"
   ],
-  "primaryOutputs": [{ "path": "MyTemplate.sln" }],
   "sources": [
     {
       "source": "./",
@@ -50,7 +49,7 @@
         "**/.git/**",
         "*.nuspec",
         "**/node_modules/**",
-        "Solution.sln"
+        "**/TestResults/**"
       ],
       "modifiers": [
         {
@@ -67,21 +66,9 @@
           ]
         },
         {
-          "condition": "(UseMinimalAPIs)",
+          "condition": "(!UseEfMigrations)",
           "exclude": [
-            "**/src/MyTemplate.API/Controllers/**"
-          ]
-        },
-        {
-          "condition": "(UseControllers)",
-          "exclude": [
-            "**/src/MyTemplate.API/Endpoints/**"
-          ]
-        },
-        {
-          "condition": "(!IncludeHelmChart)",
-          "exclude": [
-            "**/MyTemplateChart/**"
+            "**/src/MyTemplate.Persistence.MsSql.Migrations/**"
           ]
         }
       ]
@@ -96,6 +83,10 @@
         {
           "choice": "net6.0",
           "description": "Target net6.0"
+        },
+        {
+          "choice": "net7.0",
+          "description": "Target net7.0"
         }
       ],
       "defaultValue": "net6.0",
@@ -116,21 +107,7 @@
           "description": "MongoDB persistence implementation"
         }
       ],
-      "defaultValue": "MS SQL (EF Core)"
-    },
-    "UseControllers": {
-      "type": "parameter",
-      "datatype": "bool",
-      "defaultValue": "false",
-      "displayName": "Use controllers (uncheck to use minimal APIs)",
-      "description": "Whether to use controllers instead of minimal APIs."
-    },
-    "IncludeHelmChart": {
-      "type": "parameter",
-      "datatype": "bool",
-      "defaultValue": "false",
-      "displayName": "Add a Helm chart to the solution",
-      "description": "Whether to add a folder with Helm chart to the solution."
+      "defaultValue": "MongoDB"
     },
     "MongoDBPersistence": {
       "type": "computed",
@@ -140,9 +117,12 @@
       "type": "computed",
       "value": "(Persistence == \"MS SQL (EF Core)\")"
     },
-    "UseMinimalAPIs": {
-      "type": "computed",
-      "value": "(!UseControllers)"
+    "UseEfMigrations": {
+      "type": "parameter",
+      "datatype": "bool",
+      "defaultValue": "false",
+      "displayName": "Include EF migrations",
+      "description": "Whether to include a separate Entity Framework Core migrations assembly."
     }
   }
 }

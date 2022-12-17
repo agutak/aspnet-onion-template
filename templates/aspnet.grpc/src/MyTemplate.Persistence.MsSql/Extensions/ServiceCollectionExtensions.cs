@@ -5,7 +5,7 @@ namespace MyTemplate.Persistence.MsSql.Extensions;
 
 public static class ServiceCollectionExtensions
 {
-    public const string DbConnectionStringName = "MyDbConnectionString";
+    public const string DbConnectionStringName = "MyTemplateDb";
 
     public static void RegisterMsSqlPersistenceServices(
         this IServiceCollection services, IConfiguration configuration)
@@ -15,12 +15,10 @@ public static class ServiceCollectionExtensions
         if (dbConnectionString is null || dbConnectionString.Length <= 0)
             throw new ArgumentNullException(nameof(dbConnectionString), "DB connection string cannot be null.");
 
-        services.AddDbContext<MyDbContext>(builder =>
+        services.AddDbContext<MyTemplateContext>(builder =>
             builder.UseSqlServer(
                 dbConnectionString,
-                options => options
-                    .MigrationsAssembly("MyTemplate.Persistence.MsSql.Migrations")
-                    .MigrationsHistoryTable("__EFMigrationsHistory", MyDbContext.DEFAULT_SCHEMA)));
+                options => options.EnableRetryOnFailure()));
 
         services.AddScoped<IUnitOfWork, UnitOfWork>();
         services.AddScoped<IWeatherForecastsRepository, WeatherForecastsRepository>();
