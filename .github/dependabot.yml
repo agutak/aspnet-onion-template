@@ -6,6 +6,6 @@
 version: 2
 updates:
   - package-ecosystem: "nuget" # See documentation for possible values
-    directory: "./templates/aspnet.grpc/src/MyTemplate.API/" # Location of package manifests
+    directory: "./templates/aspnet.grpc/"
     schedule:
       interval: "weekly"
