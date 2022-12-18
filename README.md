@@ -8,7 +8,9 @@
 This is a template package with two solution templates:
 - ASP.NET Web API application,
 - gRPC application.
+
 Both of these solutions are built by following the Onion Architecture.
+
 You can create a new solution based on one of these templates by installing the associated NuGet package and using it from Visual Studion 2022 and later or directly with DotNet CLI commands.
 
 Each template contains:
