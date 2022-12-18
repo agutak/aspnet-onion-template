@@ -9,3 +9,7 @@ updates:
     directory: "./templates/aspnet.grpc/"
     schedule:
       interval: "weekly"
+  - package-ecosystem: "nuget" # See documentation for possible values
+    directory: "./templates/aspnet.webapi/"
+    schedule:
+      interval: "weekly"
