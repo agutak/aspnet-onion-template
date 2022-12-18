@@ -64,4 +64,9 @@
     <Build Include="mytpl\Tables\WeatherForecasts.sql" />
     <Build Include="Security\mytpl.sql" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="MyTemplate.Database.publish.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
 </Project>
