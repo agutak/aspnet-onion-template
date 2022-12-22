@@ -32,8 +32,10 @@
     "22857AAC-388E-4AAE-A484-8176AE4A0F84",
     "F4DB687C-4411-40FA-9A49-50B8A518D888",
     "711D4A0A-28D2-4A6C-8510-70BE86339F7F",
-    "C66552AC-A68B-4B4F-B2D3-BBC3819C9F38"
+    "C66552AC-A68B-4B4F-B2D3-BBC3819C9F38",
+    "64DDB6CC-D5A9-46D7-BD19-2ADD6FADC3C9"
   ],
+  "primaryOutputs": [ { "path": "MyTemplate.sln" } ],
   "sources": [
     {
       "source": "./",
@@ -121,7 +123,7 @@
       "type": "parameter",
       "datatype": "bool",
       "defaultValue": "false",
-      "displayName": "Include EF migrations",
+      "displayName": "Include EF migrations (uncheck to use sql database project)",
       "description": "Whether to include a separate Entity Framework Core migrations assembly."
     }
   }

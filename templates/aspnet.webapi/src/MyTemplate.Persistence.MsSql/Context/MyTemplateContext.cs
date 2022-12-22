@@ -4,7 +4,7 @@ namespace MyTemplate.Persistence.MsSql.Context;
 
 public class MyTemplateContext : DbContext
 {
-    public const string DEFAULT_SCHEMA = "dbo";
+    public const string DEFAULT_SCHEMA = "mytpl";
 
     public MyTemplateContext(DbContextOptions<MyTemplateContext> options) : base(options) { }
 

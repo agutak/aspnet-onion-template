@@ -1,0 +1,2 @@
+﻿CREATE SCHEMA [mytpl]
+    AUTHORIZATION [dbo];
