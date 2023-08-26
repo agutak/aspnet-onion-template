@@ -11,15 +11,15 @@ This is a template package with two solution templates:
 
 Both of these solutions are built by following the Onion Architecture.
 
-You can create a new solution based on one of these templates by installing the associated NuGet package and using it from Visual Studion 2022 and later or directly with DotNet CLI commands.
+You can create a new solution based on one of these templates by installing the associated NuGet package and using it from Visual Studio 2022 and later or directly with DotNet CLI commands.
 
 Each template contains:
 - Domain, Application, Persistence, Infrastructure, and API projects,
-- MS SQL and MongoDB persistence layer implementations wich user can choose during solution creation,
+- MS SQL and MongoDB persistence layer implementations which user can choose during solution creation,
 - Optional Entity Framework migrations project,
 - Unit tests and Component tests template projects,
 
-The template of your choise contains either:
+The template of your choice contains either:
 - API project with REST minimal API's and, optionally, standard controllers
 - API project with gRPC service
 
@@ -31,7 +31,7 @@ To install this package on your system run the following command with the latest
 
 ``` dotnet new --install AHutak.OnionArchitecture.AspNet::<latest version> ```
 
-You should see the message as shown below which indicates successfull installation
+You should see the message as shown below which indicates successful installation
 
 ![image](https://user-images.githubusercontent.com/25172188/208269429-cd8faa56-255d-4019-8839-5a8f80ffd918.png)
 
