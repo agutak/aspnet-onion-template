@@ -36,7 +36,6 @@
         <dependency id="Microsoft.NET.Test.Sdk" version="17.4.1" />
         <dependency id="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" version="1.17.0" />
         <dependency id="MongoDB.Driver" version="2.18.0" />
-        <dependency id="Moq" version="4.18.3" />
         <dependency id="MSTest.TestAdapter" version="3.0.0" />
         <dependency id="MSTest.TestFramework" version="3.0.0" />
         <dependency id="Swashbuckle.AspNetCore" version="6.4.0" />
@@ -45,7 +44,7 @@
         <dependency id="coverlet.collector" version="3.2.0" />
         <dependency id="FluentAssertions" version="6.8.0" />
         <dependency id="Grpc.AspNetCore" version="2.50.0" />
-        <dependency id="Microsoft.AspNetCore.Mvc.Testing" version="7.0.0" />
+        <dependency id="Microsoft.AspNetCore.Mvc.Testing" version="7.0.10" />
         <dependency id="Microsoft.EntityFrameworkCore.SqlServer" version="7.0.1" />
         <dependency id="Microsoft.EntityFrameworkCore.Tools" version="7.0.1" />
         <dependency id="Microsoft.Extensions.DependencyInjection.Abstractions" version="7.0.0" />
@@ -53,7 +52,6 @@
         <dependency id="Microsoft.NET.Test.Sdk" version="17.4.1" />
         <dependency id="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" version="1.17.0" />
         <dependency id="MongoDB.Driver" version="2.18.0" />
-        <dependency id="Moq" version="4.18.3" />
         <dependency id="MSTest.TestAdapter" version="3.0.0" />
         <dependency id="MSTest.TestFramework" version="3.0.0" />
         <dependency id="Swashbuckle.AspNetCore" version="6.4.0" />
