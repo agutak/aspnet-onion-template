@@ -1,6 +1,4 @@
-﻿using System.Runtime.Serialization;
-
-namespace MyTemplate.Domain.Exceptions;
+﻿namespace MyTemplate.Domain.Exceptions;
 
 [Serializable]
 public class DomainException : Exception
@@ -25,10 +23,6 @@ public class DomainException : Exception
     public DomainException(string? message, string? paramName, Exception? innerException) : base(message, innerException)
     {
         ParamName = paramName;
-    }
-
-    protected DomainException(SerializationInfo info, StreamingContext context) : base(info, context)
-    {
     }
 
     public string? ParamName { get; }

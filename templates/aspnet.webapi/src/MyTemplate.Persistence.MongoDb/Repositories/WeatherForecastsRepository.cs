@@ -1,6 +1,6 @@
 ﻿namespace MyTemplate.Persistence.MongoDb.Repositories;
 
-internal class WeatherForecastsRepository : Repository<WeatherForecast, Guid>, IWeatherForecastsRepository
+internal sealed class WeatherForecastsRepository : Repository<WeatherForecast, Guid>, IWeatherForecastsRepository
 {
     private const string _collectionName = "WeatherForecasts";
 

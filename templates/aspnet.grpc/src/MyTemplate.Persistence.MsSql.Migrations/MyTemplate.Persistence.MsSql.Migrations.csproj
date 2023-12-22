@@ -1,17 +1,29 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <RootNamespace>MyTemplate.Persistence.MsSql.Migrations</RootNamespace>
     <AssemblyName>MyTemplate.Persistence.MsSql.Migrations</AssemblyName>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <LangVersion>latest</LangVersion>
+    <AnalysisLevel>latest-recommended</AnalysisLevel>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.14" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.13">
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.14" Condition="'$(Framework)' == 'net6.0'" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.14" Condition="'$(Framework)' == 'net7.0'" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.0" Condition="'$(Framework)' == 'net8.0'" />
+
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.14" Condition="'$(Framework)' == 'net6.0'">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.14" Condition="'$(Framework)' == 'net7.0'">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.0" Condition="'$(Framework)' == 'net8.0'">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>

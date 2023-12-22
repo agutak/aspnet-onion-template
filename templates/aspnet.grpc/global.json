@@ -1,0 +1,12 @@
+{
+  "sdk": {
+    //#if (Framework == 'net6.0')
+    "version": "6.0.100",
+    //#elseif (Framework == 'net7.0')
+    "version": "7.0.100",
+    //#elseif (Framework == 'net8.0')
+    "version": "8.0.100",
+    //#endif
+    "rollForward": "latestPatch"
+  }
+}

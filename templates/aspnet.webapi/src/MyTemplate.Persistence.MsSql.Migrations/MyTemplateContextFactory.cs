@@ -5,13 +5,13 @@ using System.Reflection;
 
 namespace MyTemplate.Persistence.MsSql.Migrations;
 
-internal class MyTemplateContextFactory : IDesignTimeDbContextFactory<MyTemplateContext>
+internal sealed class MyTemplateContextFactory : IDesignTimeDbContextFactory<MyTemplateContext>
 {
     public MyTemplateContext CreateDbContext(string[] args)
     {
         var connStr = "Server=.;Initial Catalog=MyTemplateDb;Integrated Security=true;";
 
-        if (args is not null && args.Length > 0 && args[0].StartsWith("conn="))
+        if (args is not null && args.Length > 0 && args[0].StartsWith("conn=", StringComparison.OrdinalIgnoreCase))
             connStr = args[0][5..];
 
         var assemblyName = Assembly.GetExecutingAssembly().GetName().Name;
@@ -20,7 +20,7 @@ internal class MyTemplateContextFactory : IDesignTimeDbContextFactory<MyTemplate
             .UseSqlServer(connStr, opts =>
                 opts
                     .MigrationsAssembly(assemblyName)
-                    .MigrationsHistoryTable("__EFMigrationsHistory", MyTemplateContext.DEFAULT_SCHEMA));
+                    .MigrationsHistoryTable("__EFMigrationsHistory", MyTemplateContext.DEFAULTSCHEMA));
 
         return new MyTemplateContext(optionsBuilder.Options);
     }

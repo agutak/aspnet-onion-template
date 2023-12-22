@@ -1,5 +1,4 @@
 # ![icon](https://raw.githubusercontent.com/agutak/aspnet-onion-template/master/.github/icon.png) ASP.NET Onion Architecture Solution Template
-[![.NET](https://github.com/agutak/aspnet-clean-template/actions/workflows/build-test-dotnet.yml/badge.svg?branch=master)](https://github.com/agutak/aspnet-clean-template/actions/workflows/build-test-dotnet.yml)
 [![CodeQL](https://github.com/agutak/aspnet-clean-template/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/agutak/aspnet-clean-template/actions/workflows/codeql-analysis.yml)
 [![Nuget](https://img.shields.io/nuget/vpre/AHutak.OnionArchitecture.AspNet?label=NuGet)](https://www.nuget.org/packages/AHutak.OnionArchitecture.AspNet)
 [![Nuget](https://img.shields.io/nuget/dt/AHutak.OnionArchitecture.AspNet?label=Downloads)](https://www.nuget.org/packages/AHutak.OnionArchitecture.AspNet)
@@ -9,7 +8,7 @@ This is a template package with two solution templates:
 - ASP.NET Web API application,
 - gRPC application.
 
-Both of these solutions are built by following the Onion Architecture.
+Both of these solutions are built according to the Onion Architecture.
 
 You can create a new solution based on one of these templates by installing the associated NuGet package and using it from Visual Studio 2022 and later or directly with DotNet CLI commands.
 
@@ -25,11 +24,23 @@ The template of your choice contains either:
 
 ## Getting Started
 
+### Building nuget package from source code
+
+To build the nuget package from source code follow the next steps:
+- [install nuget.exe](https://learn.microsoft.com/en-us/nuget/install-nuget-client-tools?tabs=windows#install-nugetexe)
+- run nuget pack command from the root of the repository `nuget pack aspnet-onion-template.nuspec -NoDefaultExcludes`
+
 ### Installing the templates
 
-To install this package on your system run the following command with the latest package version
+To install this package on your system from a NuGet package stored at nuget.org run the following command with the latest package version
 
 ``` dotnet new --install AHutak.OnionArchitecture.AspNet::<latest version> ```
+
+To install this package on your system from a local nupkg file run the following command with the latest package version
+
+``` dotnet new install <PATH_TO_NUPKG_FILE>/AHutak.OnionArchitecture.AspNet.<latest version>.nupkg ```
+
+For more information see [Installing a template package.](https://learn.microsoft.com/en-us/dotnet/core/tools/custom-templates#install-a-template-package)
 
 You should see the message as shown below which indicates successful installation
 

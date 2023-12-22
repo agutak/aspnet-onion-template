@@ -89,10 +89,14 @@
         {
           "choice": "net7.0",
           "description": "Target net7.0"
+        },
+        {
+          "choice": "net8.0",
+          "description": "Target net8.0"
         }
       ],
-      "defaultValue": "net6.0",
-      "replaces": "net6.0"
+      "defaultValue": "net8.0",
+      "replaces": "net8.0"
     },
     "Persistence": {
       "type": "parameter",

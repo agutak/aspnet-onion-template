@@ -77,7 +77,6 @@
     <CaptureTraceOutput>false</CaptureTraceOutput>
     <DeleteDeploymentDirectoryAfterTestRunIsComplete>False</DeleteDeploymentDirectoryAfterTestRunIsComplete>
     <DeploymentEnabled>False</DeploymentEnabled>
-    <AssemblyResolution></AssemblyResolution>
   </MSTest>
 
 </RunSettings>

@@ -46,4 +46,4 @@ app.RegisterWeatherForecastsEndpoints();
 app.MapControllers();
 #endif
 
-app.Run();
+await app.RunAsync();

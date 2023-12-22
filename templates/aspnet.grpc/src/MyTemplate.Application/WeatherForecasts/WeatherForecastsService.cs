@@ -13,7 +13,7 @@ public class WeatherForecastsService : IWeatherForecastsService
         _unitOfWork = unitOfWork;
     }
 
-    public async Task<Guid> CreateWeatherForecastAsync(WeatherForecastCreateDto model)
+    public async Task<Guid> CreateWeatherForecastAsync(WeatherForecastCreateDto model, CancellationToken cancellation)
     {
         var weatherForecast = new WeatherForecast(
             model.Date,
@@ -21,15 +21,14 @@ public class WeatherForecastsService : IWeatherForecastsService
             model.Summary);
 
         await _weatherForecastsRepository
-            .AddAsync(weatherForecast);
+            .AddAsync(weatherForecast, cancellation);
 
-        await _unitOfWork.CompleteAsync(default);
+        await _unitOfWork.CompleteAsync(cancellation);
 
         return weatherForecast.EntityId;
     }
 
-    public async Task<IEnumerable<WeatherForecastReturnDto>> GetWeatherForecastsAsync(
-        CancellationToken cancellation)
+    public async Task<IEnumerable<WeatherForecastReturnDto>> GetWeatherForecastsAsync(CancellationToken cancellation)
     {
         var weatherForecasts = await _weatherForecastsRepository
             .GetAllAsync(cancellation);
@@ -47,9 +46,7 @@ public class WeatherForecastsService : IWeatherForecastsService
             .ToArray();
     }
 
-    public async Task<WeatherForecastReturnDto?> GetWeatherForecastAsync(
-        Guid id,
-        CancellationToken cancellation)
+    public async Task<WeatherForecastReturnDto?> GetWeatherForecastAsync(Guid id, CancellationToken cancellation)
     {
         var weatherForecast = await _weatherForecastsRepository
             .GetAsync(id, cancellation);
@@ -80,8 +77,8 @@ public class WeatherForecastsService : IWeatherForecastsService
             model.Summary);
 
         await _weatherForecastsRepository
-            .UpdateAsync(weatherForecast);
+            .UpdateAsync(weatherForecast, cancellation);
 
-        await _unitOfWork.CompleteAsync(default);
+        await _unitOfWork.CompleteAsync(cancellation);
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace MyTemplate.Persistence.MongoDb.Context.EntitiesConfigurations;
 
-internal class EntitySerializationMapping : BaseSerializationMapping<Entity<Guid>>
+internal sealed class EntitySerializationMapping : BaseSerializationMapping<Entity<Guid>>
 {
     public EntitySerializationMapping()
     {

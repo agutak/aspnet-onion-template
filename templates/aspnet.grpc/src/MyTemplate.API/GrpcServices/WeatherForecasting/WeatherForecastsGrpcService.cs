@@ -1,5 +1,6 @@
 ﻿using Google.Protobuf.WellKnownTypes;
 using Grpc.Core;
+using MyTemplate.API.Extensions;
 using MyTemplate.API.GrpcServices.WeatherForecasting.Protos;
 
 namespace MyTemplate.API.GrpcServices.WeatherForecasting;
@@ -26,7 +27,7 @@ public class WeatherForecastsGrpcService : WeatherForecasts.WeatherForecastsBase
 
         var response = new GetWeatherForecastsResponse();
 
-        response.Forecasts.AddRange(forecasts.Select(x => MapFrom(x)).ToList());
+        response.Forecasts.AddRange(forecasts.Select(MapFrom).ToList());
 
         return response;
     }
@@ -43,7 +44,10 @@ public class WeatherForecastsGrpcService : WeatherForecasts.WeatherForecastsBase
         var forecastResponse = MapFrom(forecast);
 
         if (forecast is null)
-            context.Status = new Status(StatusCode.NotFound, "Not found");
+        {
+            _logger.WeatherForecastNotFound(id);
+            throw new RpcException(new Status(StatusCode.NotFound, "WeatherForecastNotFound"));
+        }
 
         return new GetWeatherForecastResponse() { Forecast = forecastResponse };
     }
@@ -57,7 +61,8 @@ public class WeatherForecastsGrpcService : WeatherForecasts.WeatherForecastsBase
             request.TemperatureC,
             request.Summary);
 
-        var id = await _weatherForecastsService.CreateWeatherForecastAsync(forecastDto);
+        var id = await _weatherForecastsService
+            .CreateWeatherForecastAsync(forecastDto, context.CancellationToken);
 
         return new CreateWeatherForecastResponse { Id = id.ToString() };
     }
@@ -72,7 +77,8 @@ public class WeatherForecastsGrpcService : WeatherForecasts.WeatherForecastsBase
             request.TemperatureC,
             request.Summary);
 
-        await _weatherForecastsService.UpdateWeatherForecastAsync(forecastDto, context.CancellationToken);
+        await _weatherForecastsService
+            .UpdateWeatherForecastAsync(forecastDto, context.CancellationToken);
 
         return new Empty();
     }

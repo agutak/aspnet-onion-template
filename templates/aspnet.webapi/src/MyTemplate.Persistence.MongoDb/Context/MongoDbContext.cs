@@ -1,6 +1,6 @@
 ﻿namespace MyTemplate.Persistence.MongoDb.Context;
 
-internal class MongoDbContext : IMongoDbContext, IDisposable
+internal sealed class MongoDbContext : IMongoDbContext, IDisposable
 {
     private readonly MongoClient _client;
     private readonly IMongoDatabase _database;
@@ -36,7 +36,7 @@ internal class MongoDbContext : IMongoDbContext, IDisposable
         GC.SuppressFinalize(this);
     }
 
-    protected virtual void Dispose(bool disposing)
+    private void Dispose(bool disposing)
     {
         if (disposing)
         {
