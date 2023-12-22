@@ -28,7 +28,8 @@ The template of your choice contains either:
 
 To build the nuget package from source code follow the next steps:
 - [install nuget.exe](https://learn.microsoft.com/en-us/nuget/install-nuget-client-tools?tabs=windows#install-nugetexe)
-- run nuget pack command from the root of the repository `nuget pack aspnet-onion-template.nuspec -NoDefaultExcludes`
+- run nuget pack command from the root of the repository
+  ``` nuget pack aspnet-onion-template.nuspec -NoDefaultExcludes ```
 
 ### Installing the templates
 
