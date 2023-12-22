@@ -6,11 +6,12 @@ public class CreateWeatherForecastEndpoint
 {
     internal static async Task<IResult> ExecuteAsync(
         WeatherForecastCreateModel model,
-        IWeatherForecastsService service)
+        IWeatherForecastsService service,
+        CancellationToken cancellation)
     {
         var weathterForecastDto = MapFrom(model);
 
-        var id = await service.CreateWeatherForecastAsync(weathterForecastDto);
+        var id = await service.CreateWeatherForecastAsync(weathterForecastDto, cancellation);
         return Results.Ok(id);
     }
 

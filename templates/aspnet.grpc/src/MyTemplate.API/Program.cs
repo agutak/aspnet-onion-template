@@ -9,9 +9,6 @@ using MyTemplate.Persistence.MsSql.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Logging.ClearProviders();
-builder.Logging.AddJsonConsole();
-
 // Add services to the container.
 
 builder.Services.AddGrpc();
@@ -31,4 +28,4 @@ var app = builder.Build();
 
 app.MapGrpcService<WeatherForecastsGrpcService>();
 
-app.Run();
+await app.RunAsync();

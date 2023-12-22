@@ -1,6 +1,6 @@
 ﻿namespace MyTemplate.Persistence.MsSql.Context.EntitiesConfigurations;
 
-internal class WeatherForecastEntityConfiguration : IEntityTypeConfiguration<WeatherForecast>
+internal sealed class WeatherForecastEntityConfiguration : IEntityTypeConfiguration<WeatherForecast>
 {
     private const string _keyPropertyName = "_id";
 

@@ -15,10 +15,8 @@ public static class ServiceCollectionExtensions
 
         services.AddSingleton(sp =>
         {
-            var options = sp.GetService<IOptions<MongoDbSettings>>()?.Value;
-
-            if (options is null)
-                throw new InvalidOperationException("MongoDbSettings configuration section is not defined.");
+            var options = (sp.GetService<IOptions<MongoDbSettings>>()?.Value)
+                ?? throw new InvalidOperationException("MongoDbSettings configuration section is not defined.");
 
             var clientSettings = MongoClientSettings.FromConnectionString(options.ConnectionString);
             clientSettings.LinqProvider = LinqProvider.V3;
@@ -27,10 +25,8 @@ public static class ServiceCollectionExtensions
 
         services.AddSingleton(sp =>
         {
-            var options = sp.GetService<IOptions<MongoDbSettings>>()?.Value;
-
-            if (options is null)
-                throw new InvalidOperationException("MongoDbSettings configuration section is not defined.");
+            var options = (sp.GetService<IOptions<MongoDbSettings>>()?.Value) 
+                ?? throw new InvalidOperationException("MongoDbSettings configuration section is not defined.");
 
             var mongoClient = sp.GetRequiredService<MongoClient>();
 

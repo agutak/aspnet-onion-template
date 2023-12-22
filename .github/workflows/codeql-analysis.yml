@@ -66,10 +66,10 @@ jobs:
 
     - run: |
        echo "Run, Build Application using dotnet"
-       dotnet build ./templates/aspnet.webapi/src/MyTemplate.API/MyTemplate.API.csproj -p:Framework=net6.0
-       dotnet build ./templates/aspnet.webapi/src/MyTemplate.Persistence.MsSql.Migrations/MyTemplate.Persistence.MsSql.Migrations.csproj -p:Framework=net6.0
-       dotnet build ./templates/aspnet.grpc/src/MyTemplate.API/MyTemplate.API.csproj -p:Framework=net6.0
-       dotnet build ./templates/aspnet.grpc/src/MyTemplate.Persistence.MsSql.Migrations/MyTemplate.Persistence.MsSql.Migrations.csproj -p:Framework=net6.0
+       dotnet build ./templates/aspnet.webapi/src/MyTemplate.API/MyTemplate.API.csproj -p:Framework=net8.0
+       dotnet build ./templates/aspnet.webapi/src/MyTemplate.Persistence.MsSql.Migrations/MyTemplate.Persistence.MsSql.Migrations.csproj -p:Framework=net8.0
+       dotnet build ./templates/aspnet.grpc/src/MyTemplate.API/MyTemplate.API.csproj -p:Framework=net8.0
+       dotnet build ./templates/aspnet.grpc/src/MyTemplate.Persistence.MsSql.Migrations/MyTemplate.Persistence.MsSql.Migrations.csproj -p:Framework=net8.0
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v2

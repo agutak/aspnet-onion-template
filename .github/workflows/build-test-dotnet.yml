@@ -15,7 +15,7 @@ jobs:
       uses: actions/setup-dotnet@v2
       with:
         dotnet-version: |
-            6.0.x
+            8.0.x
     - name: Restore dependencies
       run: dotnet restore MyTemplate.sln
       working-directory: ./templates/aspnet.webapi
@@ -30,7 +30,7 @@ jobs:
       uses: actions/setup-dotnet@v2
       with:
         dotnet-version: |
-            6.0.x
+            8.0.x
     - name: Restore dependencies
       run: dotnet restore MyTemplate.sln
       working-directory: ./templates/aspnet.grpc

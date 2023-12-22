@@ -13,7 +13,7 @@ public static class ServiceCollectionExtensions
         var dbConnectionString = configuration.GetConnectionString(DbConnectionStringName);
 
         if (dbConnectionString is null || dbConnectionString.Length <= 0)
-            throw new ArgumentNullException(nameof(dbConnectionString), "DB connection string cannot be null.");
+            throw new InvalidOperationException("DB connection string cannot be null.");
 
         services.AddDbContext<MyTemplateContext>(builder =>
             builder.UseSqlServer(

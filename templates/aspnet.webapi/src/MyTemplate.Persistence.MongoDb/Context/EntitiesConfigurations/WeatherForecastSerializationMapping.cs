@@ -1,6 +1,6 @@
 ﻿namespace MyTemplate.Persistence.MongoDb.Context.EntitiesConfigurations;
 
-internal class WeatherForecastSerializationMapping : BaseSerializationMapping<WeatherForecast>
+internal sealed class WeatherForecastSerializationMapping : BaseSerializationMapping<WeatherForecast>
 {
     public WeatherForecastSerializationMapping()
     {

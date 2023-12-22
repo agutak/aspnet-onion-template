@@ -17,7 +17,7 @@ public class WeatherForecastsController : ControllerBase
 
     [HttpPost]
     public async Task<ActionResult<Guid>> CreateWeatherForecastAsync(
-        [FromBody] WeatherForecastCreateModel model)
+        [FromBody] WeatherForecastCreateModel model, CancellationToken cancellation)
     {
         var weathterForecastDto = new WeatherForecastCreateDto(
             model.Date,
@@ -25,7 +25,7 @@ public class WeatherForecastsController : ControllerBase
             model.Summary);
 
         var id = await _weatherForecastsService
-            .CreateWeatherForecastAsync(weathterForecastDto);
+            .CreateWeatherForecastAsync(weathterForecastDto, cancellation);
 
         return Ok(id);
     }
@@ -54,8 +54,7 @@ public class WeatherForecastsController : ControllerBase
 
     [HttpGet("{id}")]
     public async Task<ActionResult<WeatherForecastViewModel>> GetWeatherForecastAsync(
-        [FromRoute] Guid id,
-        CancellationToken cancellation)
+        [FromRoute] Guid id, CancellationToken cancellation)
     {
         var result = await _weatherForecastsService
             .GetWeatherForecastAsync(id, cancellation);
