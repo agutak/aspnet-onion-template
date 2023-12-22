@@ -7,9 +7,9 @@
     <title>ASP.NET Onion Architecture Solution template</title>
     <description> This is a solution templates package for creating an ASP.NET application following the principles of Onion Architecture.</description>
     <releaseNotes>
-      Release includes the following improvements:
+      The release includes the following improvements:
       - added support for .NET 8,
-      - all dependencies upgraded to latest versions
+      - all dependencies upgraded to the latest versions
       - minor refactorings and code cleanup
 	  </releaseNotes>
     <projectUrl>https://github.com/agutak/aspnet-onion-template</projectUrl>

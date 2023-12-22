@@ -14,21 +14,22 @@ You can create a new solution based on one of these templates by installing the 
 
 Each template contains:
 - Domain, Application, Persistence, Infrastructure, and API projects,
-- MS SQL and MongoDB persistence layer implementations which user can choose during solution creation,
+- MS SQL and MongoDB persistence layer implementations which the user can choose during solution creation,
 - Optional Entity Framework migrations project,
 - Unit tests and Component tests template projects,
 
 The template of your choice contains either:
-- API project with REST minimal API's and, optionally, standard controllers
+- API project with REST minimal APIs and, optionally, standard controllers
 - API project with gRPC service
 
 ## Getting Started
 
 ### Building nuget package from source code
 
-To build the nuget package from source code follow the next steps:
+To build the NuGet package from the source code follow the next steps:
 - [install nuget.exe](https://learn.microsoft.com/en-us/nuget/install-nuget-client-tools?tabs=windows#install-nugetexe)
 - run nuget pack command from the root of the repository
+
   ``` nuget pack aspnet-onion-template.nuspec -NoDefaultExcludes ```
 
 ### Installing the templates
@@ -43,11 +44,11 @@ To install this package on your system from a local nupkg file run the following
 
 For more information see [Installing a template package.](https://learn.microsoft.com/en-us/dotnet/core/tools/custom-templates#install-a-template-package)
 
-You should see the message as shown below which indicates successful installation
+You should see the message shown below which indicates a successful installation
 
 ![image](https://user-images.githubusercontent.com/25172188/208269429-cd8faa56-255d-4019-8839-5a8f80ffd918.png)
 
-After that you have several options, to use it either from Visual Studio 2022 or from command-line.  
+After that you have several options, to use it either from Visual Studio 2022 or from the command line.  
 
 #### From Visual Studio 2022:
 
@@ -73,15 +74,15 @@ or
 
 At the moment these templates support two persistence layer implementations: 
 - MS SQL with EF Core
-- MongoDB.  
+- MongoDB.
 
 You can select one of them during solution creation.
 
 ### Launching the solution
 
-The next step to launch the newly created solution is updating the appsettings json files in API project.  
+The next step to launch the newly created solution is updating the appsettings json files in the API project.  
 You will need to provide the database connection information.  
-Depending on selected Persistence layer implementation appsettings json files will contain one of configuration sections: 
+Depending on the selected Persistence layer implementation appsettings json files will contain one of the configuration sections:
 
 - for MongoDB
 
@@ -100,7 +101,7 @@ Depending on selected Persistence layer implementation appsettings json files wi
 ```
 
 If MS SQL persistence implementation was selected during solution creation you have to run migrations on your database.
-This step can be done with following commands run from the root directory of your solution (assuming you have installed the "dotnet ef" tools)
+This step can be done with the following commands run from the root directory of your solution (assuming you have installed the "dotnet ef" tools)
 
 ``` 
   dotnet ef database update -p src/your-solution-name.Persistence.MsSql.Migrations/ -s src/your-solution-name.Persistence.MsSql.Migrations/ --connection 'your-connection-string' 
@@ -109,7 +110,7 @@ This step can be done with following commands run from the root directory of you
 For more information on Entity Framework Core tools see [Entity Framework Core tools reference](https://docs.microsoft.com/en-us/ef/core/cli/dotnet)
 
 
-After that you can launch the API project from Visual Studio or from command-line.
+After that, you can launch the API project from Visual Studio or the command line.
 
 ## Support
 
