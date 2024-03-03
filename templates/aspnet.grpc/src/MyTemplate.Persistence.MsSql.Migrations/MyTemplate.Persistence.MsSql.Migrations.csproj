@@ -11,8 +11,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.14" Condition="'$(Framework)' == 'net6.0'" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.14" Condition="'$(Framework)' == 'net7.0'" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.2" Condition="'$(Framework)' == 'net6.0'" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.2" Condition="'$(Framework)' == 'net7.0'" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.0" Condition="'$(Framework)' == 'net8.0'" />
 
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.14" Condition="'$(Framework)' == 'net6.0'">
